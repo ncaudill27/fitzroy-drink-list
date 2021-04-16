@@ -36,16 +36,27 @@ export const query = graphql`
       keywords
     }
     drinks: allSanityDrink {
-      nodes {
-        id
-        name
-        garnish
-        glassware
-        price
-        ingredients {
-          amount
-          measurement
+      edges {
+        node {
           name
+          price
+          ingredients {
+            amount
+            measurement
+            name
+          }
+          mainImage {
+            _rawAsset
+          }
+          id
+          glassware
+          garnish
+          categories {
+            title
+          }
+          body {
+            _rawChildren
+          }
         }
       }
     }

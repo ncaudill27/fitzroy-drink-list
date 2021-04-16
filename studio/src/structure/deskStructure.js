@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdLocalBar, MdSettings } from "react-icons/md";
+import { MdBubbleChart, MdList, MdLocalBar, MdSettings } from "react-icons/md";
 import { MdPerson, MdDescription, MdLocalOffer } from "react-icons/md";
 import IframePreview from "../previews/IframePreview";
 

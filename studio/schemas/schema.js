@@ -16,11 +16,12 @@ import bioPortableText from "./objects/bioPortableText";
 import excerptPortableText from "./objects/excerptPortableText";
 import mainImage from "./objects/mainImage";
 import bartenderReference from "./objects/bartenderReference";
+import ingredient from './objects/ingredient'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
-  name: "blog",
+  name: "drinklist",
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
@@ -28,6 +29,7 @@ export default createSchema({
     // in the studio.
     siteSettings,
     drink,
+    ingredient,
     category,
     bartender,
     mainImage,

@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 export default {
   name: "drink",
   type: "document",
@@ -12,15 +10,36 @@ export default {
       description: "Names should be catchy, descriptive, and reference Die Hard",
     },
     {
+      name: 'garnish',
+      type: 'string',
+      title: 'Garnish'
+    },
+    {
+      name: 'price',
+      type: 'number',
+      title: 'Price'
+    },
+    {
+      name: 'glassware',
+      type: 'string',
+      title: 'Glassware',
+      options: {
+        list: [
+          {title: 'Rocks', value: 'rocks'},
+          {title: 'Coupe', value: 'coupe'},
+          {title: 'Collins', value: 'collins'},
+          {title: 'Coffee Mug', value: 'coffeemug'},
+          {title: 'Clear Mug', value: 'clearmug'}
+        ]
+      }
+    },
+    {
       name: "ingredients",
       type: "array",
       title: "Ingredients",
       of: [
         {
-          type: 'reference',
-          to: {
-            type: 'ingredient'
-          }
+          type: 'ingredient'
         }
       ]
     },

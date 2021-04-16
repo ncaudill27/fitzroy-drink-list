@@ -41,12 +41,12 @@ export default {
         "This ends up on summary pages, on Google, when people share your post in social media.",
     },
     {
-      name: "authors",
-      title: "Authors",
+      name: "bartenders",
+      title: "Bartenders",
       type: "array",
       of: [
         {
-          type: "authorReference",
+          type: "bartenderReference",
         },
       ],
     },

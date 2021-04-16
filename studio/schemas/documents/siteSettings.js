@@ -26,11 +26,11 @@ export default {
       },
     },
     {
-      name: "author",
+      name: "bartender",
       type: "reference",
-      description: "Publish an author and set a reference to them here.",
-      title: "Author",
-      to: [{ type: "author" }],
+      description: "Publish a bartender and set a reference to them here.",
+      title: "Bartender",
+      to: [{ type: "bartender" }],
     },
   ],
 };

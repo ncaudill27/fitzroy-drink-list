@@ -59,10 +59,10 @@ export default () =>
         .schemaType("post")
         .child(S.documentTypeList("post").title("Blog posts")),
       S.listItem()
-        .title("Authors")
+        .title("Bartenders")
         .icon(MdPerson)
-        .schemaType("author")
-        .child(S.documentTypeList("author").title("Authors")),
+        .schemaType("bartender")
+        .child(S.documentTypeList("bartender").title("Bartender")),
       S.listItem()
         .title("Categories")
         .icon(MdLocalOffer)

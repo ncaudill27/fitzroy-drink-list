@@ -1,7 +1,7 @@
 export default {
-  name: "author",
+  name: "bartender",
   type: "document",
-  title: "Author",
+  title: "Bartender",
   fields: [
     {
       name: "name",

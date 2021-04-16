@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdSettings } from "react-icons/md";
+import { MdLocalBar, MdSettings } from "react-icons/md";
 import { MdPerson, MdDescription, MdLocalOffer } from "react-icons/md";
 import IframePreview from "../previews/IframePreview";
 
@@ -18,7 +18,7 @@ export const getDefaultDocumentNode = (props) => {
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
   const { schemaType } = props;
-  if (schemaType == "post") {
+  if (schemaType == "drink") {
     return S.document().views([
       S.view.form(),
       S.view
@@ -54,10 +54,10 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title("Blog posts")
-        .icon(MdDescription)
-        .schemaType("post")
-        .child(S.documentTypeList("post").title("Blog posts")),
+        .title("Drinks")
+        .icon(MdLocalBar)
+        .schemaType("drink")
+        .child(S.documentTypeList("drink").title("Drink List")),
       S.listItem()
         .title("Bartenders")
         .icon(MdPerson)
@@ -73,7 +73,7 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !["category", "bartender", "post", "siteSettings"].includes(
+          !["category", "bartender", "drink", "siteSettings"].includes(
             listItem.getId()
           )
       ),

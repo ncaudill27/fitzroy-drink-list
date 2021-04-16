@@ -7,7 +7,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 // document schemas
 import bartender from "./documents/bartender";
 import category from "./documents/category";
-import post from "./documents/post";
+import drink from "./documents/drink";
 import siteSettings from "./documents/siteSettings";
 
 // Object types
@@ -27,7 +27,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     siteSettings,
-    post,
+    drink,
     category,
     bartender,
     mainImage,

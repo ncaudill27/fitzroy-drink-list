@@ -13,6 +13,7 @@ export function filterOutDocsWithoutSlugs({ slug }) {
   return (slug || {}).current;
 }
 
+// TODO replace with filterOutInactiveDrinks
 export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
   return !isFuture(new Date(publishedAt));
 }

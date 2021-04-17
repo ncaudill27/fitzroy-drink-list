@@ -1,10 +1,13 @@
 import React from "react";
 import styled from 'styled-components'
 
+
+import GlobalStyle from '../styles/globalStyles'
 import Header from "./header";
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
+    <GlobalStyle />
     <Header
       siteTitle={siteTitle}
       onHideNav={onHideNav}
@@ -12,7 +15,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
       showNav={showNav}
     />
     <Body>{children}</Body>
-    <footer>
+    {/* <footer>
       <div>
         <div>
           &copy; {new Date().getFullYear()}, Built with{" "}
@@ -20,7 +23,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </div>
       </div>
-    </footer>
+    </footer> */}
   </>
 );
 

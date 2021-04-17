@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
-import MaxWidthWrapper from "../components/maxWidthWrapper";
+
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import CocktailMenu from '../components/cocktailMenu'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -95,12 +96,7 @@ const IndexPage = (props) => {
         description={site.description}
         keywords={site.keywords}
       />
-      <MaxWidthWrapper width={910}>
-        <h1>Welcome to {site.title}</h1>
-        {drinkNodes && drinkNodes.map(drink => (
-          <div>{drink.name}</div>
-        ))}
-      </MaxWidthWrapper>
+      {drinkNodes && <CocktailMenu drinks={drinkNodes} />}
     </Layout>
   );
 };

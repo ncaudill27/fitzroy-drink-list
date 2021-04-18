@@ -2,25 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Header from './cocktailMenuHeader'
+import DrinkList from './cocktailMenuDrinks'
 
 const CocktailMenu = ({drinks}) => (
   <LetterheadWrapper>
     <Header />
-    <MainWrapper>
-      {drinks.map(drink => {
-        console.log(drink)
-        return (
-          <div>
-            <div>
-              {drink.name} {drink.price}
-            </div>
-            <div>
-              {drink.ingredients.map(i => i.name).join(', ')}
-            </div>
-          </div>
-        )
-      })}
-    </MainWrapper>
+    <DecorativeBox />
+    <DrinkList drinks={drinks} />
   </LetterheadWrapper>
 )
 
@@ -36,18 +24,13 @@ const LetterheadWrapper = styled.div`
   border: 1px solid;
 `
 
-const MainWrapper = styled.div`
+const DecorativeBox = styled.div`
   position: absolute;
-  width: calc(6.625in - 2in); /* 5/8" */
-  height: calc(8in - 2in);
-  bottom: 1.0626in; /* 1/16" */
-  right: 0.9375in; /* 15/16" */
-  border: 3px solid;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 1in;
-  text-align: center;
+  width: 6.25in;
+  height: 8.25in;
+  right: 1.125in;
+  bottom: 0.9375in;
+  border: 1px solid;
 `
 
 export default CocktailMenu

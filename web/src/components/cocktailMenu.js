@@ -1,15 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Header from './cocktailMenuHeader'
+
 const CocktailMenu = ({drinks}) => (
   <LetterheadWrapper>
-    <Header>
-      <Title>The <br/> Fitzroy</Title>
-      <Subtitle>Cocktails</Subtitle>
-    </Header>
-    {drinks.map(drink => (
-      <div>{drink.name}</div>
-    ))}
+    <Header />
+    <MainWrapper>
+      {drinks.map(drink => {
+        console.log(drink)
+        return (
+          <div>
+            <div>
+              {drink.name} {drink.price}
+            </div>
+            <div>
+              {drink.ingredients.map(i => i.name).join(', ')}
+            </div>
+          </div>
+        )
+      })}
+    </MainWrapper>
   </LetterheadWrapper>
 )
 
@@ -25,30 +36,18 @@ const LetterheadWrapper = styled.div`
   border: 1px solid;
 `
 
-const Header = styled.header`
-  position: relative;
-  width: calc(4in - 16px);
-  height: 1.5625in; /* 1 9/16" */
-  left: 0.375in; /* 3/8" */
-  top: 0.9375in; /* 15/16" */
-  background-color: hsl(0, 0%, 90%);
+const MainWrapper = styled.div`
+  position: absolute;
+  width: calc(6.625in - 2in); /* 5/8" */
+  height: calc(8in - 2in);
+  bottom: 1.0626in; /* 1/16" */
+  right: 0.9375in; /* 15/16" */
+  border: 3px solid;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 8px;
-`
-
-const Title = styled.h1`
+  justify-content: space-around;
+  padding: 1in;
   text-align: center;
-  text-transform: uppercase;
-  width: fit-content;
-  margin: 0;
 `
 
-const Subtitle = styled.h2`
-  text-transform: uppercase;
-  width: fit-content;
-  margin: 0;
-`
 export default CocktailMenu

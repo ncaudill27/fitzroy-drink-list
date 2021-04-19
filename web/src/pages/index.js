@@ -1,13 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
 import { useReactToPrint } from 'react-to-print'
-
+import styled from 'styled-components'
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import CocktailMenu from '../components/cocktailMenu'
+import { set } from "date-fns";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -74,6 +75,11 @@ const IndexPage = (props) => {
     content: () => menuEl.current,
   });
 
+  const [left, setLeft] = useState(0);
+  useEffect(() => {
+    setLeft(menuEl.current.getBoundingClientRect().left)
+  }, [menuEl])
+
   if (errors) {
     return (
       <Layout>
@@ -100,10 +106,42 @@ const IndexPage = (props) => {
         description={site.description}
         keywords={site.keywords}
       />
+      <ButtonWrapper style={{
+          '--lateral-position': left + 'px'
+        }}>
+          <PrintButton
+            onClick={handlePrint}
+          >
+            Print Menu
+          </PrintButton>
+        </ButtonWrapper>
       {drinkNodes && <CocktailMenu ref={menuEl} drinks={drinkNodes} />}
-      <button onClick={handlePrint}>Print Menu</button>
     </Layout>
   );
 };
+
+const ButtonWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: var(--lateral-position);
+  height: 100%;
+  z-index: 1;
+`
+
+const PrintButton = styled.button`
+  position: sticky;
+  top: 28px;
+  outline: none;
+  border: none;
+  padding: 16px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: hsl(240deg, 50%, 40%);
+  color: hsl(0, 0%, 95%);
+
+  &:hover {
+    cursor: pointer;  
+  }
+`
 
 export default IndexPage;

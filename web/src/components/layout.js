@@ -28,7 +28,6 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
 );
 
 const Body = styled.main`
-  
 `
 
 export default Layout;

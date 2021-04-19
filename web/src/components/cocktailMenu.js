@@ -4,13 +4,13 @@ import styled from 'styled-components'
 import Header from './cocktailMenuHeader'
 import DrinkList from './cocktailMenuDrinks'
 
-const CocktailMenu = ({drinks}) => (
-  <LetterheadWrapper>
+const CocktailMenu = React.forwardRef( ({drinks}, ref) => (
+  <LetterheadWrapper ref={ref}>
     <Header />
     <DecorativeBox />
     <DrinkList drinks={drinks} />
   </LetterheadWrapper>
-)
+))
 
 const LetterheadWrapper = styled.div`
   width: 8.5in;
@@ -21,7 +21,6 @@ const LetterheadWrapper = styled.div`
   bottom: 0;
   left: 0;
   margin: auto;
-  border: 1px solid;
 `
 
 const DecorativeBox = styled.div`

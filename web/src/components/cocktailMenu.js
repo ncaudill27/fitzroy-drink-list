@@ -1,16 +1,29 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
+import { useReactToPrint } from 'react-to-print'
 
 import Header from './cocktailMenuHeader'
 import DrinkList from './cocktailMenuDrinks'
+import PrintButton from './printButton'
 
-const CocktailMenu = React.forwardRef( ({drinks}, ref) => (
-  <LetterheadWrapper ref={ref}>
-    <Header />
-    <DecorativeBox />
-    <DrinkList drinks={drinks} />
-  </LetterheadWrapper>
-))
+const CocktailMenu = ({drinks}) => {
+  const menuEl = useRef()
+
+  const handlePrint = useReactToPrint({
+    content: () => menuEl.current,
+  });
+
+  return (
+    <div style={{position: 'relative'}}>
+      <PrintButton handlePrint={handlePrint} />
+      <LetterheadWrapper ref={menuEl}>
+        <Header />
+        <DecorativeBox />
+        <DrinkList drinks={drinks} />
+      </LetterheadWrapper>
+    </div>
+  )
+}
 
 const LetterheadWrapper = styled.div`
   width: 8.5in;

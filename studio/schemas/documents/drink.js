@@ -30,7 +30,8 @@ export default {
           {title: 'Collins', value: 'collins'},
           {title: 'Coffee Mug', value: 'coffee mug'},
           {title: 'Clear Mug', value: 'clear mug'},
-          {title: 'Wine', value: 'wine'}
+          {title: 'Wine', value: 'wine'},
+          {title: 'Flute', value: 'flute'}
         ]
       }
     },

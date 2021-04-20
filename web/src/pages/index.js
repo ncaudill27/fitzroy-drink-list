@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
-import { useReactToPrint } from 'react-to-print'
-import styled from 'styled-components'
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -93,16 +91,6 @@ export const query = graphql`
 
 const IndexPage = (props) => {
   const { data, errors } = props;
-  const menuEl = useRef()
-
-  const handlePrint = useReactToPrint({
-    content: () => menuEl.current,
-  });
-
-  const [left, setLeft] = useState(0);
-  useEffect(() => {
-    setLeft(menuEl.current.getBoundingClientRect().left)
-  }, [menuEl])
 
   if (errors) {
     return (
@@ -134,43 +122,10 @@ const IndexPage = (props) => {
         description={site.description}
         keywords={site.keywords}
       />
-      <ButtonWrapper style={{
-          '--lateral-position': left + 'px'
-        }}>
-          <PrintButton
-            onClick={handlePrint}
-          >
-            Print Menu
-          </PrintButton>
-        </ButtonWrapper>
-      {dinnerDrinkNodes && <CocktailMenu ref={menuEl} drinks={dinnerDrinkNodes} />}
+      {dinnerDrinkNodes && <CocktailMenu drinks={dinnerDrinkNodes} />}
       {brunchDrinkNodes && <CocktailMenu drinks={brunchDrinkNodes} />}
     </Layout>
   );
 };
-
-const ButtonWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  right: var(--lateral-position);
-  height: 100%;
-  z-index: 1;
-`
-
-const PrintButton = styled.button`
-  position: sticky;
-  top: 28px;
-  outline: none;
-  border: none;
-  padding: 16px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  background-color: hsl(240deg, 50%, 40%);
-  color: hsl(0, 0%, 95%);
-
-  &:hover {
-    cursor: pointer;  
-  }
-`
 
 export default IndexPage;

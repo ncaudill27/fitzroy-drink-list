@@ -6,7 +6,7 @@ const DrinkList = ({drinks}) => (
       {drinks.map(drink => (
         <article>
           <NamePrice>
-            {drink.name} {drink.price}
+            {drink.name}  {drink.price}
           </NamePrice>
           <div>
             {drink.ingredients.map(i => i.name).join(', ')}
@@ -29,12 +29,12 @@ const Wrapper = styled.div`
   gap: 20px;
   padding: 1in 1.5in;
   text-align: center;
-  border: 1px solid;
 `
 
 const NamePrice = styled.div`
   font-size: 1.2rem;
   text-transform: uppercase;
-  margin-bottom: 0.2em; 
+  margin-bottom: 0.2em;
+  white-space: pre-wrap;
 `
 export default DrinkList

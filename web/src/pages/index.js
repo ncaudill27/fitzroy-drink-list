@@ -8,7 +8,6 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import CocktailMenu from '../components/cocktailMenu'
-import { set } from "date-fns";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -39,7 +38,32 @@ export const query = graphql`
       description
       keywords
     }
-    drinks: allSanityDrink {
+    dinnerCocktails: allSanityDrink(filter: {categories: {elemMatch: {title: {eq: "Dinner"}}}}) {
+      edges {
+        node {
+          name
+          price
+          ingredients {
+            amount
+            measurement
+            name
+          }
+          mainImage {
+            _rawAsset
+          }
+          id
+          glassware
+          garnish
+          categories {
+            title
+          }
+          body {
+            _rawChildren
+          }
+        }
+      }
+    }
+    brunchCocktails: allSanityDrink(filter: {categories: {elemMatch: {title: {eq: "Brunch"}}}}) {
       edges {
         node {
           name
@@ -89,8 +113,12 @@ const IndexPage = (props) => {
   }
 
   const site = (data || {}).site;
-  const drinkNodes = (data || {}).drinks
-    ? mapEdgesToNodes(data.drinks)
+  const dinnerDrinkNodes = (data || {}).dinnerCocktails
+    ? mapEdgesToNodes(data.dinnerCocktails)
+    : [];
+
+  const brunchDrinkNodes = (data || {}).brunchCocktails
+    ? mapEdgesToNodes(data.brunchCocktails)
     : [];
 
   if (!site) {
@@ -115,7 +143,8 @@ const IndexPage = (props) => {
             Print Menu
           </PrintButton>
         </ButtonWrapper>
-      {drinkNodes && <CocktailMenu ref={menuEl} drinks={drinkNodes} />}
+      {dinnerDrinkNodes && <CocktailMenu ref={menuEl} drinks={dinnerDrinkNodes} />}
+      {brunchDrinkNodes && <CocktailMenu drinks={brunchDrinkNodes} />}
     </Layout>
   );
 };

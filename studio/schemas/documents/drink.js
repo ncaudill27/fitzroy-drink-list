@@ -28,8 +28,9 @@ export default {
           {title: 'Rocks', value: 'rocks'},
           {title: 'Coupe', value: 'coupe'},
           {title: 'Collins', value: 'collins'},
-          {title: 'Coffee Mug', value: 'coffeemug'},
-          {title: 'Clear Mug', value: 'clearmug'}
+          {title: 'Coffee Mug', value: 'coffee mug'},
+          {title: 'Clear Mug', value: 'clear mug'},
+          {title: 'Wine', value: 'wine'}
         ]
       }
     },

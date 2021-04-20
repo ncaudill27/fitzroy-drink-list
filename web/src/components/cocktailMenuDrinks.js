@@ -29,6 +29,7 @@ const Wrapper = styled.div`
   gap: 20px;
   padding: 1in 1.5in;
   text-align: center;
+  border: 1px solid;
 `
 
 const NamePrice = styled.div`

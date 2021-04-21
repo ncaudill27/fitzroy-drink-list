@@ -26,6 +26,7 @@ const CocktailMenu = ({drinks}) => {
           <StaticImage
             src="../images/boxing-gloves-cocktail.png"
             width={100}
+            height={100}
             quality={100}
             formats={["AUTO", "WEBP", "AVIF"]}
             alt="The Fitzroy logo title"
@@ -67,6 +68,8 @@ const LineBox = styled.div`
 
 const BoxingGloves = styled.div`
   position: absolute;
+  height: 100px;
+  width: 100px;
   bottom: 1.25in;
   right: 1.25in;
 `

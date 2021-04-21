@@ -19,16 +19,17 @@ const Header = () => (
 
 const Wrapper = styled.header`
   position: relative;
-  width: 4in;
-  height: 1.5625in; /* 1 9/16" */
-  top: 0.6875in; /* 11/16" */
+  width: 4.25in;
+  height: 1.75in; /* 1 5/8" */
+  top: 0.5625in; /* 11/16" */
   background-color: hsl(0, 1%, 72%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
   text-transform: uppercase;
-  padding: 0 8px;
+  padding-top: 0.125in;
+  padding-right: 0.25in;
 `
 
 const Title = styled.div`
@@ -44,7 +45,7 @@ const The = styled.span`
 `
 
 const Subtitle = styled.h2`
-  margin: 0;
+  margin-bottom: 0.0625in;
   width: fit-content;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;

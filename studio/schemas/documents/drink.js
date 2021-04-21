@@ -10,6 +10,11 @@ export default {
       description: "Names should be catchy, descriptive, and reference Die Hard",
     },
     {
+      name: 'active',
+      type: 'boolean',
+      title: 'On Menu'
+    },
+    {
       name: 'garnish',
       type: 'string',
       title: 'Garnish'

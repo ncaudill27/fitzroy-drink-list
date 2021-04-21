@@ -4,14 +4,15 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const Header = () => (
   <Wrapper>
-    <StaticImage
-      src="../images/logo-type.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
+    <Title>
+      <StaticImage
+        src="../images/logo-type.png"
+        width={280}
+        quality={100}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="The Fitzroy logo title"
+      />
+    </Title>
     <Subtitle>Cocktails</Subtitle>
   </Wrapper>
 )
@@ -30,12 +31,10 @@ const Wrapper = styled.header`
   padding: 0 8px;
 `
 
-const Title = styled.h1`
-  text-align: center;
-  width: fit-content;
-  margin: 0;
-  font-size: 4rem;
-  margin-top: -1.2rem;
+const Title = styled.div`
+  position: relative;
+  top: 0;
+  right: -8px;
 `
 
 const The = styled.span`

@@ -19,7 +19,7 @@ const Header = () => (
 
 const Wrapper = styled.header`
   position: relative;
-  width: calc(4in - 16px);
+  width: 4in;
   height: 1.5625in; /* 1 9/16" */
   top: 0.6875in; /* 11/16" */
   background-color: hsl(0, 1%, 72%);

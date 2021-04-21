@@ -18,7 +18,8 @@ const CocktailMenu = ({drinks}) => {
       <PrintButton handlePrint={handlePrint} />
       <LetterheadWrapper ref={menuEl}>
         <Header />
-        <DecorativeBox />
+        <ThinLineBox />
+        <LineBox />
         <DrinkList drinks={drinks} />
       </LetterheadWrapper>
     </div>
@@ -36,13 +37,22 @@ const LetterheadWrapper = styled.div`
   margin: auto;
 `
 
-const DecorativeBox = styled.div`
+const ThinLineBox = styled.div`
   position: absolute;
   width: 6.25in;
-  height: 8.25in;
+  height: 8.375in;
   right: 1.125in;
   bottom: 0.9375in;
   border: 1px solid;
+`
+
+const LineBox = styled.div`
+  position: absolute;
+  width: 6.4375in;
+  height: 8.1875in;
+  bottom: 1.03125in;
+  right: 1.03125in;
+  border: 2px solid;
 `
 
 export default CocktailMenu

@@ -18,7 +18,6 @@ const DrinkList = ({drinks}) => (
 
 const Wrapper = styled.div`
   position: absolute;
-  /* substract to account for padding */
   width: 6.625in; /* 5/8" */
   height: 8in;
   bottom: 1.125in; /* 1/16" */

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useReactToPrint } from 'react-to-print'
+import { StaticImage } from "gatsby-plugin-image"
 
 import Header from './cocktailMenuHeader'
 import DrinkList from './cocktailMenuDrinks'
@@ -21,6 +22,15 @@ const CocktailMenu = ({drinks}) => {
         <ThinLineBox />
         <LineBox />
         <DrinkList drinks={drinks} />
+        <BoxingGloves>
+          <StaticImage
+            src="../images/boxing-gloves-cocktail.png"
+            width={100}
+            quality={100}
+            formats={["AUTO", "WEBP", "AVIF"]}
+            alt="The Fitzroy logo title"
+          />
+        </BoxingGloves>
       </LetterheadWrapper>
     </div>
   )
@@ -53,6 +63,12 @@ const LineBox = styled.div`
   bottom: 1.03125in;
   right: 1.03125in;
   border: 2px solid;
+`
+
+const BoxingGloves = styled.div`
+  position: absolute;
+  bottom: 1.25in;
+  right: 1.25in;
 `
 
 export default CocktailMenu

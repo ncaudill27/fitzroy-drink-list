@@ -26,12 +26,14 @@ const Title = styled.h1`
   text-align: center;
   width: fit-content;
   margin: 0;
-  font-size: 3.3rem;
+  font-size: 4rem;
   margin-top: -1.2rem;
 `
 
 const The = styled.span`
   font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 `
 
 const Subtitle = styled.h2`

@@ -36,7 +36,10 @@ export const query = graphql`
       description
       keywords
     }
-    dinnerCocktails: allSanityDrink(filter: {categories: {elemMatch: {title: {eq: "Dinner"}}}}) {
+    dinnerCocktails: allSanityDrink(
+      filter: {categories: {elemMatch: {title: {eq: "Dinner"}}}}
+      sort: {fields: order, order: ASC}
+    ) {
       edges {
         node {
           name
@@ -61,7 +64,10 @@ export const query = graphql`
         }
       }
     }
-    brunchCocktails: allSanityDrink(filter: {categories: {elemMatch: {title: {eq: "Brunch"}}}}) {
+    brunchCocktails: allSanityDrink(
+      filter: {categories: {elemMatch: {title: {eq: "Brunch"}}}}
+      sort: {fields: order, order: ASC}
+    ) {
       edges {
         node {
           name

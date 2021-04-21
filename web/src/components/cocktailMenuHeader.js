@@ -1,9 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticImage } from "gatsby-plugin-image"
 
 const Header = () => (
   <Wrapper>
-    <Title><The>The</The> <br/> Fitzroy</Title>
+    <StaticImage
+      src="../images/logo-type.png"
+      width={300}
+      quality={95}
+      formats={["AUTO", "WEBP", "AVIF"]}
+      alt="A Gatsby astronaut"
+      style={{ marginBottom: `1.45rem` }}
+    />
     <Subtitle>Cocktails</Subtitle>
   </Wrapper>
 )

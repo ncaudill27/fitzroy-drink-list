@@ -20,5 +20,26 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Big Shoulders Display',
+              variants: ['500'],
+            },
+            {
+              family: 'Montserrat',
+              variants: ['300', '400', '600'],
+            },
+            {
+              family: 'Open Sans',
+              variants: ['300']
+            }
+          ],
+        },
+      },
+    },
   ],
 };

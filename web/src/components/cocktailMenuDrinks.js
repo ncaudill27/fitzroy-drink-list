@@ -3,17 +3,17 @@ import styled from 'styled-components'
 
 const DrinkList = ({drinks}) => (
   <Wrapper>
-      {drinks.map(drink => (
-        <article>
-          <NamePrice>
-            {drink.name}  {drink.price}
-          </NamePrice>
-          <div>
-            {drink.ingredients.map(i => i.name).join(', ')}
-          </div>
-        </article>
-      ))}
-    </Wrapper>
+    {drinks.map(drink => (
+      <article>
+        <NamePrice>
+          {drink.name}  {drink.price}
+        </NamePrice>
+        <Ingredients>
+          {drink.ingredients.map(i => i.name).join(', ')}
+        </Ingredients>
+      </article>
+    ))}
+  </Wrapper>
 )
 
 const Wrapper = styled.div`
@@ -25,16 +25,26 @@ const Wrapper = styled.div`
   border: 3px solid;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
   padding: 1in 1.5in;
   text-align: center;
 `
 
 const NamePrice = styled.div`
-  font-size: 1.2rem;
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  margin-bottom: 0.2em;
   white-space: pre-wrap;
+`
+
+const Price = styled.span`
+  font-family: 'Open Sans', sans-serif;
+`
+
+const Ingredients = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  color: hsl(0, 0%, 30%);
+  font-weight: 300;
 `
 export default DrinkList

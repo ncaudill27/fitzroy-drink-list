@@ -15,6 +15,11 @@ export default {
       title: 'On Menu'
     },
     {
+      name: 'order',
+      type: 'number',
+      title: 'Menu Order',
+    },
+    {
       name: 'garnish',
       type: 'string',
       title: 'Garnish'
@@ -64,6 +69,7 @@ export default {
       name: "categories",
       type: "array",
       title: "Categories",
+      description: "Used for organizational purposes. Be sure to add what menu it should appear on if nothing else.",
       of: [
         {
           type: "reference",

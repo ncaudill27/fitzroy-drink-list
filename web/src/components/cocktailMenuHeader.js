@@ -47,7 +47,7 @@ const Subtitle = styled.h2`
   margin: 0;
   width: fit-content;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-weight: 600;
   font-size:  2rem;
   color: hsl(357, 74%, 28%);
 `

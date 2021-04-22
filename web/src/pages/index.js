@@ -6,6 +6,7 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import CocktailMenu from '../components/cocktailMenu'
+import DrinkSpecs from '../components/staffDrinkSpecs'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -130,6 +131,8 @@ const IndexPage = (props) => {
       />
       {dinnerDrinkNodes && <CocktailMenu drinks={dinnerDrinkNodes} />}
       {brunchDrinkNodes && <CocktailMenu drinks={brunchDrinkNodes} />}
+      {dinnerDrinkNodes && <DrinkSpecs title='Dinner Drink Specs' drinkList={dinnerDrinkNodes} />}
+      {brunchDrinkNodes && <DrinkSpecs title='Brunch Drink Specs' drinkList={brunchDrinkNodes} />}
     </Layout>
   );
 };

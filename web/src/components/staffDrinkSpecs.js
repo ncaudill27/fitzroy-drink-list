@@ -38,10 +38,18 @@ const DrinkSpecs = ({title, drinkList}) => {
               <Subheader>Ingredients</Subheader>
               <Content>{ingredients.map(i => (
                 <Ingredient>
-                  <div>{i.name}</div>
+                  <div styles={{alignSelf: 'right', textAlign: 'right'}}>{i.name}</div>
                   <div>{i.amount} {i.measurement}</div>
                 </Ingredient>
               ))}</Content>
+              <Subheader>Build</Subheader>
+              <Content>
+                {body.map( ({_rawChildren, _key}, idx) => (
+                  <div key={_key} >
+                    {idx + 1}) {_rawChildren[0].text}
+                  </div>
+                ))}
+              </Content>
             </DrinkWrapper>
           ))}
         </ListWrapper>
@@ -51,18 +59,22 @@ const DrinkSpecs = ({title, drinkList}) => {
 }
 
 const RootWrapper = styled.div`
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px 0 0;
-  font-family: 'Montserrat', sans-serif;
+  width: 8.5in;
+  height: 11in;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 0.5in;
 `
 
 const Title = styled.h2`
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 `
 
 const ListWrapper = styled.div`
@@ -109,5 +121,9 @@ const Ingredient = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 `
+
+DrinkSpecs.defaultProps = {
+  drinkList: []
+}
 
 export default DrinkSpecs

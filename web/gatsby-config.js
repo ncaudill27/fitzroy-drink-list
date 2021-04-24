@@ -38,6 +38,10 @@ module.exports = {
               variants: ['500'],
             },
             {
+              family: 'Big Shoulders Stencil Display',
+              variants: ['600'],
+            },
+            {
               family: 'Montserrat',
               variants: ['300', '400', '600'],
             },

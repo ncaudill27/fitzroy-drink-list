@@ -1,12 +1,9 @@
 import React from "react";
-import { graphql } from "gatsby";
-import { mapEdgesToNodes } from "../lib/helpers";
+import { graphql, Link } from "gatsby"
+import styled from 'styled-components'
 
-import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-import CocktailMenu from '../components/cocktailMenu'
-import DrinkSpecs from '../components/staffDrinkSpecs'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -31,97 +28,19 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
     }
-    dinnerCocktails: allSanityDrink(
-      filter: {categories: {elemMatch: {title: {eq: "Dinner"}}}}
-      sort: {fields: order, order: ASC}
-    ) {
-      edges {
-        node {
-          name
-          price
-          ingredients {
-            amount
-            measurement
-            name
-          }
-          mainImage {
-            _rawAsset
-          }
-          id
-          glassware
-          garnish
-          categories {
-            title
-          }
-          body {
-            _rawChildren
-          }
-        }
-      }
-    }
-    brunchCocktails: allSanityDrink(
-      filter: {categories: {elemMatch: {title: {eq: "Brunch"}}}}
-      sort: {fields: order, order: ASC}
-    ) {
-      edges {
-        node {
-          name
-          price
-          ingredients {
-            amount
-            measurement
-            name
-          }
-          mainImage {
-            _rawAsset
-          }
-          id
-          glassware
-          garnish
-          categories {
-            title
-          }
-          body {
-            _rawChildren
-          }
-        }
-      }
-    }
   }
 `;
 
-const IndexPage = (props) => {
-  const { data, errors } = props;
+const IndexPage = ({data}) => {  
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
+  const site = data?.site
 
-  const site = (data || {}).site;
-  const dinnerDrinkNodes = (data || {}).dinnerCocktails
-    ? mapEdgesToNodes(data.dinnerCocktails)
-    : [];
-
-  const brunchDrinkNodes = (data || {}).brunchCocktails
-    ? mapEdgesToNodes(data.brunchCocktails)
-    : [];
-
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
-  
   return (
     <Layout>
       <SEO
@@ -129,12 +48,51 @@ const IndexPage = (props) => {
         description={site.description}
         keywords={site.keywords}
       />
-      {dinnerDrinkNodes && <CocktailMenu drinks={dinnerDrinkNodes} />}
-      {brunchDrinkNodes && <CocktailMenu drinks={brunchDrinkNodes} />}
-      {dinnerDrinkNodes && <DrinkSpecs title='Dinner Drink Specs' drinkList={dinnerDrinkNodes} />}
-      {brunchDrinkNodes && <DrinkSpecs title='Brunch Drink Specs' drinkList={brunchDrinkNodes} />}
+      <Wrapper>
+        <Title>
+          The <br />
+          Fitzroy <br />
+          Cocktails
+        </Title>
+        <StyledLink to='/dinner'>Dinner</StyledLink>
+        <StyledLink to='/brunch'>Brunch</StyledLink>
+      </Wrapper>
     </Layout>
   );
 };
+
+const Wrapper = styled.div`
+  padding: 40px;
+  height: 100vh;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Big Shoulders Stencil Display', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`
+const Title = styled.h1`
+  font-size: 5rem;
+`
+
+const StyledLink = styled(Link)`
+  background-color: hsl(237, 8%, 70%);
+  border: 5px solid hsl(237, 14%, 31%);
+  padding: 12px 28px;
+  text-decoration: none;
+  font-size: 4rem;
+  border-radius: 5px;
+  color: black;
+
+  &:hover {
+    background-color: hsl(237, 14%, 31%);
+    color: white;
+  }
+`
+
+
+
+
 
 export default IndexPage;

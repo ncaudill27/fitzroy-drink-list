@@ -46,6 +46,7 @@ const LetterheadWrapper = styled.div`
   bottom: 0;
   left: 0;
   margin: auto;
+  background-color: white;
 `
 
 const ThinLineBox = styled.div`

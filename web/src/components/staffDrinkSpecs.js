@@ -14,9 +14,7 @@ const DrinkSpecs = ({title, drinkList}) => {
   return (
     <div style={{position: 'relative'}}>
       <PrintButton handlePrint={handlePrint} />
-      <RootWrapper ref={listEl}>
-        <Title>{title}</Title>
-  
+      <RootWrapper ref={listEl}>  
         <ListWrapper>
           {drinkList.map(({
             name,
@@ -60,21 +58,14 @@ const DrinkSpecs = ({title, drinkList}) => {
 
 const RootWrapper = styled.div`
   width: 8.5in;
-  height: 11in;
   position: relative;
-  top: 0;
+  top: 50px;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
   padding: 0.5in;
-`
-
-const Title = styled.h2`
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 32px;
+  background-color: white;
 `
 
 const ListWrapper = styled.div`
@@ -83,8 +74,12 @@ const ListWrapper = styled.div`
   gap: 40px;
 `
 
-const DrinkWrapper = styled.div`
-  page-break-inside: ;
+const DrinkWrapper = styled.article`
+  display: block;
+  
+  @media print {
+    page-break-inside: avoid;
+  }
 `
 
 const NamePriceWrapper = styled.div`

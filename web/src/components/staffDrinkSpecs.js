@@ -36,7 +36,12 @@ const DrinkSpecs = ({title, drinkList}) => {
               <Subheader>Glass</Subheader>
               <Content>{glassware}</Content>
               <Subheader>Ingredients</Subheader>
-              <Content>{ingredients.map(i => i.name).join(', ')}</Content>
+              <Content>{ingredients.map(i => (
+                <Ingredient>
+                  <div>{i.name}</div>
+                  <div>{i.amount} {i.measurement}</div>
+                </Ingredient>
+              ))}</Content>
             </DrinkWrapper>
           ))}
         </ListWrapper>
@@ -97,6 +102,12 @@ const Subheader = styled.h6`
 const Content = styled.p`
   font-weight: 300;
   text-transform: capitalize;
+  white-space: pre-wrap;
+`
+
+const Ingredient = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `
 
 export default DrinkSpecs

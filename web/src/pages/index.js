@@ -70,7 +70,10 @@ const Wrapper = styled.div`
   font-family: 'Big Shoulders Stencil Display', sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  
+  & > * {
+    margin-bottom: 40px;
+  }
 `
 const Title = styled.h1`
   font-size: 5rem;

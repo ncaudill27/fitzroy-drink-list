@@ -21,7 +21,7 @@ const BrunchPage = ({data}) => {
         description={site.description}
         keywords={site.keywords}
       />
-      {drinkNodes && <CocktailMenu drinks={drinkNodes} />}
+      {drinkNodes && <CocktailMenu title='Brunch' drinks={drinkNodes} />}
       {drinkNodes && <DrinkSpecs drinkList={drinkNodes} />}
    </Layout>
  ) 

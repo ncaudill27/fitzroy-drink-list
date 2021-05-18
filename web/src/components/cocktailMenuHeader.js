@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from "gatsby-plugin-image"
 
-const Header = () => (
+const Header = ({title}) => (
   <Wrapper>
     <Title>
       <StaticImage
@@ -13,7 +13,7 @@ const Header = () => (
         alt="The Fitzroy logo title"
       />
     </Title>
-    <Subtitle>Cocktails</Subtitle>
+    <Subtitle>{title}</Subtitle>
   </Wrapper>
 )
 
@@ -49,8 +49,9 @@ const Subtitle = styled.h2`
   width: fit-content;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  font-size:  2rem;
+  font-size:  32px;
   color: hsl(357, 74%, 28%);
+  text-transform: uppercase;
 `
 
 export default Header;

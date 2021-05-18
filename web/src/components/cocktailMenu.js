@@ -7,7 +7,7 @@ import Header from './cocktailMenuHeader'
 import DrinkList from './cocktailMenuDrinks'
 import PrintButton from './printButton'
 
-const CocktailMenu = ({drinks}) => {
+const CocktailMenu = ({title, drinks}) => {
   const menuEl = useRef()
 
   const handlePrint = useReactToPrint({
@@ -18,7 +18,7 @@ const CocktailMenu = ({drinks}) => {
     <div style={{position: 'relative'}}>
       <PrintButton handlePrint={handlePrint} />
       <LetterheadWrapper ref={menuEl}>
-        <Header />
+        <Header title={title} />
         <ThinLineBox />
         <LineBox />
         <DrinkList drinks={drinks} />

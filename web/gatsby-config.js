@@ -19,7 +19,8 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    },    {
+    },
+    {
       resolve: "gatsby-source-sanity",
       options: {
         ...clientConfig.sanity,
@@ -35,7 +36,7 @@ module.exports = {
           google: [
             {
               family: 'Big Shoulders Display',
-              variants: ['500'],
+              variants: ['500', '600', '700'],
             },
             {
               family: 'Big Shoulders Stencil Display',

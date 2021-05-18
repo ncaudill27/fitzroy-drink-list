@@ -43,9 +43,9 @@ const DrinkSpecs = ({title, drinkList}) => {
               <Subheader>Build</Subheader>
               <Content>
                 {body.map( ({_rawChildren, _key}, idx) => (
-                  <div key={_key} >
+                  <BuildStep key={_key} >
                     {idx + 1}) {_rawChildren[0].text}
-                  </div>
+                  </BuildStep>
                 ))}
               </Content>
             </DrinkWrapper>
@@ -84,11 +84,13 @@ const DrinkWrapper = styled.article`
 
 const NamePriceWrapper = styled.div`
   display: flex;
+  align-items: baseline;
   font-size: 1.2rem;
   font-weight: 600;
 `
 const Name = styled.h3`
-  text-decoration: underline;
+  font-family: 'Big Shoulders Display';
+  font-size: 1.5rem;
 `
 
 const Price = styled.span`
@@ -103,7 +105,7 @@ const Price = styled.span`
 const Subheader = styled.h6`
   margin-top: 8px;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 600;
 `
 
 const Content = styled.p`
@@ -115,6 +117,10 @@ const Content = styled.p`
 const Ingredient = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+`
+
+const BuildStep = styled.div`
+  text-transform: initial;
 `
 
 DrinkSpecs.defaultProps = {

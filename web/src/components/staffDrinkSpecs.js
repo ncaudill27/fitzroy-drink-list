@@ -13,53 +13,50 @@ const DrinkSpecs = ({title, drinkList}) => {
   });
 
   return (
-    <div style={{position: 'relative'}}>
-      <PrintButton handlePrint={handlePrint} />
-      <RootWrapper ref={listEl}>  
-        <ListWrapper>
-          {drinkList.map(({
-            name,
-            body,
-            price,
-            garnish,
-            glassware,
-            ingredients,
-          }) => (
-            <DrinkWrapper>
-              <NamePriceWrapper>
-                <Name>{name}</Name>
-                <Price>{price}</Price>
-              </NamePriceWrapper>
-              <Subheader>Garnish</Subheader>
-              <Content>{garnish}</Content>
-              <Subheader>Glass</Subheader>
-              <Content>{glassware}</Content>
-              <Subheader>Ingredients</Subheader>
-              <Content>{ingredients.map(({name, amount, measurement}) => (
-                <Ingredient>
-                  <div styles={{alignSelf: 'right', textAlign: 'right'}}>{name}</div>
-                  <div>
-                    {amount && parseAmount(amount)}
-                    {' '}
-                    <Measurement>
-                      {(amount && measurement) && parseMeasurement(measurement, amount)}
-                    </Measurement>
-                  </div>
-                </Ingredient>
-              ))}</Content>
-              <Subheader>Build</Subheader>
-              <Content>
-                {body.map( ({_rawChildren, _key}, idx) => (
-                  <BuildStep key={_key} >
-                    {idx + 1}) {_rawChildren[0].text}
-                  </BuildStep>
-                ))}
-              </Content>
-            </DrinkWrapper>
-          ))}
-        </ListWrapper>
-      </RootWrapper>
-    </div>
+    <RootWrapper ref={listEl}>  
+      <ListWrapper>
+        {drinkList.map(({
+          name,
+          body,
+          price,
+          garnish,
+          glassware,
+          ingredients,
+        }) => (
+          <DrinkWrapper>
+            <NamePriceWrapper>
+              <Name>{name}</Name>
+              <Price>{price}</Price>
+            </NamePriceWrapper>
+            <Subheader>Garnish</Subheader>
+            <Content>{garnish}</Content>
+            <Subheader>Glass</Subheader>
+            <Content>{glassware}</Content>
+            <Subheader>Ingredients</Subheader>
+            <Content>{ingredients.map(({name, amount, measurement}) => (
+              <Ingredient>
+                <div styles={{alignSelf: 'right', textAlign: 'right'}}>{name}</div>
+                <div>
+                  {amount && parseAmount(amount)}
+                  {' '}
+                  <Measurement>
+                    {(amount && measurement) && parseMeasurement(measurement, amount)}
+                  </Measurement>
+                </div>
+              </Ingredient>
+            ))}</Content>
+            <Subheader>Build</Subheader>
+            <Content>
+              {body.map( ({_rawChildren, _key}, idx) => (
+                <BuildStep key={_key} >
+                  {idx + 1}) {_rawChildren[0].text}
+                </BuildStep>
+              ))}
+            </Content>
+          </DrinkWrapper>
+        ))}
+      </ListWrapper>
+    </RootWrapper>
   )
 }
 
@@ -74,7 +71,7 @@ const RootWrapper = styled.div`
   padding: 0.5in;
   background-color: white;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `
 
 const ListWrapper = styled.div`

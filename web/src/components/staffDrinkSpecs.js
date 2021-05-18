@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useReactToPrint } from 'react-to-print'
+import { parseAmount } from '../lib/parse'
 
 import PrintButton from '../components/printButton'
 
@@ -34,10 +35,10 @@ const DrinkSpecs = ({title, drinkList}) => {
               <Subheader>Glass</Subheader>
               <Content>{glassware}</Content>
               <Subheader>Ingredients</Subheader>
-              <Content>{ingredients.map(i => (
+              <Content>{ingredients.map(({name, amount, measurement}) => (
                 <Ingredient>
-                  <div styles={{alignSelf: 'right', textAlign: 'right'}}>{i.name}</div>
-                  <div>{i.amount} {i.measurement}</div>
+                  <div styles={{alignSelf: 'right', textAlign: 'right'}}>{name}</div>
+                  <div>{amount && parseAmount(amount)} {measurement}</div>
                 </Ingredient>
               ))}</Content>
               <Subheader>Build</Subheader>
@@ -66,6 +67,8 @@ const RootWrapper = styled.div`
   margin: auto;
   padding: 0.5in;
   background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
 `
 
 const ListWrapper = styled.div`
@@ -85,12 +88,11 @@ const DrinkWrapper = styled.article`
 const NamePriceWrapper = styled.div`
   display: flex;
   align-items: baseline;
-  font-size: 1.2rem;
   font-weight: 600;
 `
 const Name = styled.h3`
   font-family: 'Big Shoulders Display';
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 `
 
 const Price = styled.span`

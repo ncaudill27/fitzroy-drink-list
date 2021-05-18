@@ -26,3 +26,30 @@ function convertFraction(number) {
       return number
   }
 }
+
+export const parseMeasurement = (measurement, amount) => {
+  let [first, second] = amount.split(' ')
+
+  if (measurement === 'ounces') measurement = 'oz'
+  if (first === '1' && second === undefined) {
+    measurement = measureSwitch(measurement)
+  }
+
+  return measurement
+}
+
+function measureSwitch(measurement) {
+  switch(measurement) {
+    case 'dashes':
+      return 'dash'
+
+    case 'slices':
+      return 'slice'
+
+    case 'leaves':
+      return 'leaf'
+
+    default:
+      return measurement
+  }
+}

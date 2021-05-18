@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useReactToPrint } from 'react-to-print'
-import { parseAmount } from '../lib/parse'
+import { parseAmount, parseMeasurement } from '../lib/parse'
 
 import PrintButton from '../components/printButton'
 
@@ -38,7 +38,13 @@ const DrinkSpecs = ({title, drinkList}) => {
               <Content>{ingredients.map(({name, amount, measurement}) => (
                 <Ingredient>
                   <div styles={{alignSelf: 'right', textAlign: 'right'}}>{name}</div>
-                  <div>{amount && parseAmount(amount)} {measurement}</div>
+                  <div>
+                    {amount && parseAmount(amount)}
+                    {' '}
+                    <Measurement>
+                      {(amount && measurement) && parseMeasurement(measurement, amount)}
+                    </Measurement>
+                  </div>
                 </Ingredient>
               ))}</Content>
               <Subheader>Build</Subheader>
@@ -92,7 +98,7 @@ const NamePriceWrapper = styled.div`
 `
 const Name = styled.h3`
   font-family: 'Big Shoulders Display';
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 `
 
 const Price = styled.span`
@@ -106,6 +112,7 @@ const Price = styled.span`
 
 const Subheader = styled.h6`
   margin-top: 8px;
+  margin-bottom: 4px;
   font-size: 1.2rem;
   font-weight: 600;
 `
@@ -119,10 +126,16 @@ const Content = styled.p`
 const Ingredient = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  line-height: 1.2;
+`
+
+const Measurement = styled.span`
+  text-transform: lowercase;
 `
 
 const BuildStep = styled.div`
   text-transform: initial;
+  line-height: 1.2;
 `
 
 DrinkSpecs.defaultProps = {

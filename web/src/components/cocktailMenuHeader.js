@@ -22,7 +22,7 @@ const Wrapper = styled.header`
   width: 4.25in;
   height: 1.75in; /* 1 5/8" */
   top: 0.5625in; /* 11/16" */
-  background-color: hsl(0, 1%, 72%);
+  background-color: hsl(330, 1%, 71%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

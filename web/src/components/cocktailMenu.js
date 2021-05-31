@@ -6,6 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Header from './cocktailMenuHeader'
 import DrinkList from './cocktailMenuDrinks'
 import PrintButton from './printButton'
+import LetterheadWrapper from './letterheadWrapper'
 
 const CocktailMenu = ({title, drinks}) => {
   const menuEl = useRef()
@@ -36,18 +37,6 @@ const CocktailMenu = ({title, drinks}) => {
     </div>
   )
 }
-
-const LetterheadWrapper = styled.div`
-  width: 8.5in;
-  height: 11in;
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  background-color: white;
-`
 
 const ThinLineBox = styled.div`
   position: absolute;

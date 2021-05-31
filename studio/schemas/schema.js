@@ -9,6 +9,8 @@ import bartender from "./documents/bartender";
 import category from "./documents/category";
 import drink from "./documents/drink";
 import siteSettings from "./documents/siteSettings";
+import dinnerFood from './documents/dinnerFood'
+import brunchFood from './documents/brunchFood'
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
@@ -17,6 +19,7 @@ import excerptPortableText from "./objects/excerptPortableText";
 import mainImage from "./objects/mainImage";
 import bartenderReference from "./objects/bartenderReference";
 import ingredient from './objects/ingredient'
+import options from './objects/options'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,11 +32,14 @@ export default createSchema({
     // in the studio.
     siteSettings,
     drink,
+    dinnerFood,
+    brunchFood,
     ingredient,
     category,
     bartender,
     mainImage,
     bartenderReference,
+    options,
     bodyPortableText,
     bioPortableText,
     excerptPortableText,

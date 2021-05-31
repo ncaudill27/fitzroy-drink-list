@@ -1,5 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdBubbleChart, MdList, MdLocalBar, MdSettings } from "react-icons/md";
+import { MdBubbleChart, MdList, MdLocalBar, MdRadioButtonChecked, MdRadioButtonUnchecked, MdSettings } from "react-icons/md";
 import { MdPerson, MdDescription, MdLocalOffer } from "react-icons/md";
 import IframePreview from "../previews/IframePreview";
 
@@ -59,6 +59,16 @@ export default () =>
         .schemaType("drink")
         .child(S.documentTypeList("drink").title("Drink List")),
       S.listItem()
+        .title("Dinner Food")
+        .icon(MdRadioButtonChecked)
+        .schemaType("dinnerFood")
+        .child(S.documentTypeList("dinnerFood").title("Dinner Food Items")),
+      S.listItem()
+        .title("Brunch Food")
+        .icon(MdRadioButtonUnchecked)
+        .schemaType("brunchFood")
+        .child(S.documentTypeList("brunchFood").title("Brunch Food Items")),
+      S.listItem()
         .title("Bartenders")
         .icon(MdPerson)
         .schemaType("bartender")
@@ -73,7 +83,7 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !["category", "bartender", "drink", "siteSettings"].includes(
+          !["category", "bartender", "drink", "brunchFood", "dinnerFood", "siteSettings"].includes(
             listItem.getId()
           )
       ),

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useReactToPrint } from 'react-to-print'
 import { parseAmount, parseMeasurement } from '../lib/parse'
 
-import PrintButton from '../components/printButton'
+// import PrintButton from '../components/printButton'
 
 const DrinkSpecs = ({title, drinkList}) => {
   const listEl = useRef()

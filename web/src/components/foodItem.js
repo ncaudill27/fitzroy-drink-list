@@ -29,19 +29,16 @@ const FoodItem = ({name, price, additional_options, _rawDescription}) => (
 
 const Wrapper = styled.article`
   padding: 8px;
-  /* padding-top: 0; */
-  white-space: noframes;
   font-size: 0.9rem;
 `
 
 const Name = styled.h3`
   font-family: 'Big Shoulders Display';
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
 `
 
-const Description = styled.div`
-  position: relative;
+const Description = styled.div`;
   line-height: 1.15;
 `
 

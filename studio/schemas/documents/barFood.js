@@ -1,7 +1,7 @@
 export default {
-  name: "dinnerFood",
+  name: "barFood",
   type: "document",
-  title: "Dinner Food",
+  title: "Bar Food",
   fields: [
     {
       name: "name",
@@ -28,19 +28,6 @@ export default {
       type: "number",
       title: "Price",
       description: 'If item does not have one "standard" price leave this field blank and input price points in Additional Options below.'
-    },
-    {
-      name: 'course',
-      type: 'string',
-      title: 'Course',
-      description: 'Determines what section on the menu the item will print.',
-      options: {
-        list: [
-          {title: 'Small Plates', value: 'small_plates'},
-          {title: 'Large Plates', value: 'large_plates'},
-        ],
-        layout: 'radio'
-      }
     },
     {
       title: 'Description',

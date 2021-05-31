@@ -64,6 +64,11 @@ export default () =>
         .schemaType("dinnerFood")
         .child(S.documentTypeList("dinnerFood").title("Dinner Food Items")),
       S.listItem()
+        .title("Bar Food")
+        .icon(MdRadioButtonChecked)
+        .schemaType("barFood")
+        .child(S.documentTypeList("barFood").title("Bar Food Items")),
+      S.listItem()
         .title("Brunch Food")
         .icon(MdRadioButtonUnchecked)
         .schemaType("brunchFood")
@@ -83,7 +88,7 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !["category", "bartender", "drink", "brunchFood", "dinnerFood", "siteSettings"].includes(
+          !["category", "bartender", "drink", "brunchFood", "dinnerFood", "barFood", "siteSettings"].includes(
             listItem.getId()
           )
       ),

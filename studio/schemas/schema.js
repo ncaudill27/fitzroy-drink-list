@@ -11,6 +11,7 @@ import drink from "./documents/drink";
 import siteSettings from "./documents/siteSettings";
 import dinnerFood from './documents/dinnerFood'
 import brunchFood from './documents/brunchFood'
+import barFood from './documents/barFood'
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
@@ -34,6 +35,7 @@ export default createSchema({
     drink,
     dinnerFood,
     brunchFood,
+    barFood,
     ingredient,
     category,
     bartender,

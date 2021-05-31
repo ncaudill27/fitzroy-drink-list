@@ -6,6 +6,7 @@ import { mapEdgesToNodes } from '../lib/helpers'
 import SEO from "../components/seo"
 import Layout from "../containers/layout"
 import LetterheadWrapper from '../components/letterheadWrapper'
+import FoodList from '../components/foodList'
 
 const DinnerPage = ({data}) => {
 
@@ -28,35 +29,34 @@ const DinnerPage = ({data}) => {
         keywords={site.keywords}
       />
       <LetterheadWrapper>
-        <div style={{width: '100%'}}>
-          Hello
+        <div>
+          Header Stuff Here :)
         </div>
-        <Sidebar>
+        <div>
           <SideText>Small Plates</SideText>
-        </Sidebar>
+          <FoodList food={smallPlateNodes} />
+        </div>
+        <div>
+          <SideText>Large Plates</SideText>
+          <FoodList food={largePlateNodes} />
+        </div>
       </LetterheadWrapper>
    </Layout>
  ) 
 }
 
-const Sidebar = styled.div`
-  width: 32px;
-  height: 100%;
-  text-transform: uppercase;
-  border: 1px solid red;
-`
-
 const SideText = styled.span`
+  position: absolute;
+  height: fit-content;
   display: inline-block;
   font-size: 1.3rem;
   padding: 8px;
   transform: rotate(180deg);
-  /* transform-origin: right;
-  white-space: nowrap; */
   writing-mode: vertical-rl;
-  text-orientation: sideways-left;
-
+  color: hsl(357, 74%, 28%);
 `
+
+
 
 export const query = graphql`
   query {

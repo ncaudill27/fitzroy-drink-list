@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PortableText from './portableText'
 
 import FoodStack from './foodStack'
 
@@ -20,9 +19,11 @@ const FoodList = ({food, ...props}) => {
 }
 
 const Wrapper = styled.div`
-  margin-left: 32px;
+  margin-left: 64px;
+  padding: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 16px;
 `
 
 FoodList.defaultProps = {

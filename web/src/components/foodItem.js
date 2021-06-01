@@ -28,8 +28,8 @@ const FoodItem = ({name, price, additional_options, _rawDescription}) => (
 )
 
 const Wrapper = styled.article`
-  padding: 8px;
   font-size: 0.9rem;
+  margin-bottom: 16px;
 `
 
 const Name = styled.h3`
@@ -38,8 +38,9 @@ const Name = styled.h3`
   text-transform: uppercase;
 `
 
-const Description = styled.div`;
+const Description = styled.div`
   line-height: 1.15;
+  color: hsl(0, 0%, 30%);
 `
 
 const Price = styled.span`

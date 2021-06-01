@@ -29,17 +29,14 @@ const DinnerPage = ({data}) => {
         keywords={site.keywords}
       />
       <LetterheadWrapper>
-        <div>
+        <div style={{height: 64, textAlign: 'center'}}>
           Header Stuff Here :)
         </div>
-        <div>
+        <BoxBorder />
           <SideText>Small Plates</SideText>
           <FoodList food={smallPlateNodes} />
-        </div>
-        <div>
           <SideText>Large Plates</SideText>
           <FoodList food={largePlateNodes} />
-        </div>
       </LetterheadWrapper>
    </Layout>
  ) 
@@ -48,12 +45,23 @@ const DinnerPage = ({data}) => {
 const SideText = styled.span`
   position: absolute;
   height: fit-content;
-  display: inline-block;
+  width: 64px;
+  padding-inline-end: 24px;
   font-size: 1.3rem;
-  padding: 8px;
-  transform: rotate(180deg);
-  writing-mode: vertical-rl;
+  font-weight: 600;
   color: hsl(357, 74%, 28%);
+  transform: rotate(180deg);
+  writing-mode: vertical-lr;
+`
+
+const BoxBorder = styled.div`
+  position: absolute;
+  top: 64px;
+  left: 72px;
+  right: 32px;
+  bottom: 32px;
+  border: 1px solid;
+  margin: auto;
 `
 
 

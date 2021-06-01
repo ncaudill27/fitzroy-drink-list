@@ -23,13 +23,10 @@ const Wrapper = styled.div`
   margin-right: 64px;
   margin-top: 32px;
   padding: 32px;
+  padding-bottom: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 `
-
-FoodList.defaultProps = {
-  foodList: []
-}
 
 export default FoodList

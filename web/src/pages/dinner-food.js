@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { mapEdgesToNodes } from '../lib/helpers'
 
+import Logo from '../images/svg/fitzroy_logo.svg'
 import SEO from "../components/seo"
 import Layout from "../containers/layout"
 import LetterheadWrapper from '../components/letterheadWrapper'
@@ -18,9 +19,6 @@ const DinnerPage = ({data}) => {
     ? mapEdgesToNodes(data.largePlates)
     : [];
 
-  console.log('Small', smallPlateNodes)
-  console.log('Large', largePlateNodes)
-
  return (
    <Layout>
      <SEO
@@ -29,9 +27,11 @@ const DinnerPage = ({data}) => {
         keywords={site.keywords}
       />
       <LetterheadWrapper>
-        <div style={{height: 64, textAlign: 'center'}}>
-          Header Stuff Here :)
-        </div>
+        <Header>
+          <LogoWrapper>
+            <Logo style={{width: '100%', height: '100%'}} />
+          </LogoWrapper>
+        </Header>
         <SidebarBorder />
         <BoxBorder />
           <SideText>Small Plates</SideText>
@@ -40,8 +40,23 @@ const DinnerPage = ({data}) => {
           <FoodList food={largePlateNodes} />
       </LetterheadWrapper>
    </Layout>
- ) 
+  ) 
 }
+
+const Header = styled.header`
+  position: relative;
+  height: 136px;
+`
+
+const LogoWrapper = styled.div`
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  width: 125px;
+  height: 125px;
+  margin-left: -62.5px;
+  z-index: 1;
+`
 
 const SideText = styled.span`
   position: absolute;
@@ -57,7 +72,7 @@ const SideText = styled.span`
 
 const BoxBorder = styled.div`
   position: absolute;
-  top: 96px;
+  top: 136px;
   left: 120px;
   right: 64px;
   bottom: 64px;
@@ -67,7 +82,7 @@ const BoxBorder = styled.div`
 
 const SidebarBorder = styled.div`
   position: absolute;
-  top: 96px;
+  top: 136px;
   left: 56px;
   bottom: 64px;
   right: calc(100% - 104px);

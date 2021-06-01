@@ -19,11 +19,13 @@ const FoodList = ({food, ...props}) => {
 }
 
 const Wrapper = styled.div`
-  margin-left: 64px;
-  padding: 24px;
+  margin-left: 120px;
+  margin-right: 64px;
+  margin-top: 32px;
+  padding: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 24px;
 `
 
 FoodList.defaultProps = {

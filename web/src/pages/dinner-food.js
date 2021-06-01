@@ -32,6 +32,7 @@ const DinnerPage = ({data}) => {
         <div style={{height: 64, textAlign: 'center'}}>
           Header Stuff Here :)
         </div>
+        <SidebarBorder />
         <BoxBorder />
           <SideText>Small Plates</SideText>
           <FoodList food={smallPlateNodes} />
@@ -45,8 +46,8 @@ const DinnerPage = ({data}) => {
 const SideText = styled.span`
   position: absolute;
   height: fit-content;
-  width: 64px;
-  padding-inline-end: 24px;
+  width: 104px;
+  padding-inline-end: 64px;
   font-size: 1.3rem;
   font-weight: 600;
   color: hsl(357, 74%, 28%);
@@ -56,12 +57,22 @@ const SideText = styled.span`
 
 const BoxBorder = styled.div`
   position: absolute;
-  top: 64px;
-  left: 72px;
-  right: 32px;
-  bottom: 32px;
-  border: 1px solid;
+  top: 96px;
+  left: 120px;
+  right: 64px;
+  bottom: 64px;
+  border: 2px solid;
   margin: auto;
+`
+
+const SidebarBorder = styled.div`
+  position: absolute;
+  top: 96px;
+  left: 56px;
+  bottom: 64px;
+  right: calc(100% - 104px);
+  border: 2px solid;
+  border-right: none;
 `
 
 

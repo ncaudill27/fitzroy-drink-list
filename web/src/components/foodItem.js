@@ -28,7 +28,7 @@ const FoodItem = ({name, price, additional_options, _rawDescription}) => (
 )
 
 const Wrapper = styled.article`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 16px;
 `
 

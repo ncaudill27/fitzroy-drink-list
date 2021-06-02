@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 import Layout from "../containers/layout"
 import LetterheadWrapper from '../components/letterheadWrapper'
 import FoodList from '../components/foodList'
+import LogoArray from '../components/logoArray'
 
 const DinnerPage = ({data}) => {
 
@@ -38,6 +39,7 @@ const DinnerPage = ({data}) => {
           <FoodList food={smallPlateNodes} />
           <SideText>Large Plates</SideText>
           <FoodList food={largePlateNodes} />
+          <LogoArray />
       </LetterheadWrapper>
    </Layout>
   ) 

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { mapEdgesToNodes } from '../lib/helpers'
+import { useReactToPrint } from 'react-to-print'
 
 import Logo from '../images/svg/fitzroy_logo.svg'
 import SEO from "../components/seo"
@@ -9,8 +10,14 @@ import Layout from "../containers/layout"
 import LetterheadWrapper from '../components/letterheadWrapper'
 import FoodList from '../components/foodList'
 import LogoArray from '../components/logoArray'
+import PrintButton from '../components/printButton'
 
 const DinnerPage = ({data}) => {
+  const menuEl = useRef()
+
+  const handlePrint = useReactToPrint({
+    content: () => menuEl.current,
+  });
 
   const site = data?.site
   const smallPlateNodes = !!data?.smallPlates
@@ -27,20 +34,23 @@ const DinnerPage = ({data}) => {
         description={site.description}
         keywords={site.keywords}
       />
-      <LetterheadWrapper>
-        <Header>
-          <LogoWrapper>
-            <Logo style={{width: '100%', height: '100%'}} />
-          </LogoWrapper>
-        </Header>
-        <SidebarBorder />
-        <BoxBorder />
-          <SideText>Small Plates</SideText>
-          <FoodList food={smallPlateNodes} />
-          <SideText>Large Plates</SideText>
-          <FoodList food={largePlateNodes} />
-          <LogoArray />
-      </LetterheadWrapper>
+      <div style={{position: 'relative'}}>
+        <PrintButton handlePrint={handlePrint} />
+        <LetterheadWrapper ref={menuEl}>
+          <Header>
+            <LogoWrapper>
+              <Logo style={{width: '100%', height: '100%'}} />
+            </LogoWrapper>
+          </Header>
+          <SidebarBorder />
+          <BoxBorder />
+            <SmallPlates>Small Plates</SmallPlates>
+            <FoodList food={smallPlateNodes} />
+            <LargePlates>Large Plates</LargePlates>
+            <FoodList food={largePlateNodes} />
+            <LogoArray />
+        </LetterheadWrapper>
+      </div>
    </Layout>
   ) 
 }
@@ -61,15 +71,21 @@ const LogoWrapper = styled.div`
 `
 
 const SideText = styled.span`
-  position: absolute;
-  height: fit-content;
-  width: 104px;
-  padding-inline-end: 64px;
+  position: fixed;
+  left: 80px;
   font-size: 1.3rem;
   font-weight: 600;
   color: hsl(357, 74%, 28%);
   transform: rotate(180deg);
   writing-mode: vertical-lr;
+`
+
+const SmallPlates = styled(SideText)`
+  top: 200px;
+`
+
+const LargePlates = styled(SideText)`
+  top: 514px;
 `
 
 const BoxBorder = styled.div`

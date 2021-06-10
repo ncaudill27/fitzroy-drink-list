@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   position: relative;
   padding-left: 152px;
   padding-right: 96px;
-  padding-top: 32px;
+  padding-top: 64px;
 `
 
 export default MenuSubcategory

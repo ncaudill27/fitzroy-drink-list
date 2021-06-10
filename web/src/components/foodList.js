@@ -19,7 +19,6 @@ const FoodList = ({list, ...props}) => {
 }
 
 const Wrapper = styled.div`
-  padding-top: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;

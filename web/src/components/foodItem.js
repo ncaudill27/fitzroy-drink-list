@@ -29,7 +29,10 @@ const FoodItem = ({name, price, additional_options, _rawDescription}) => (
 
 const Wrapper = styled.article`
   font-size: 0.8rem;
-  margin-bottom: 16px;
+  
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
 `
 
 const Name = styled.h3`

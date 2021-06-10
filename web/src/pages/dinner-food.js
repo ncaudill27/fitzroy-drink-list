@@ -12,6 +12,8 @@ import FoodList from '../components/foodList'
 import LogoArray from '../components/logoArray'
 import PrintButton from '../components/printButton'
 
+import MenuSubcategory from '../components/foodMenuSubcategory'
+
 const DinnerPage = ({data}) => {
   const menuEl = useRef()
 
@@ -44,10 +46,14 @@ const DinnerPage = ({data}) => {
           </Header>
           <SidebarBorder />
           <BoxBorder />
-            <SmallPlates>Small Plates</SmallPlates>
-            <FoodList food={smallPlateNodes} />
-            <LargePlates>Large Plates</LargePlates>
-            <FoodList food={largePlateNodes} />
+            <MenuSubcategory
+              title='Small Plates'
+              list={smallPlateNodes}
+            />
+            <MenuSubcategory
+              title='Large Plates'
+              list={largePlateNodes}
+            />
             <LogoArray />
         </LetterheadWrapper>
       </div>
@@ -68,24 +74,6 @@ const LogoWrapper = styled.div`
   height: 125px;
   margin-left: -62.5px;
   z-index: 1;
-`
-
-const SideText = styled.span`
-  position: fixed;
-  left: 80px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: hsl(357, 74%, 28%);
-  transform: rotate(180deg);
-  writing-mode: vertical-lr;
-`
-
-const SmallPlates = styled(SideText)`
-  top: 200px;
-`
-
-const LargePlates = styled(SideText)`
-  top: 514px;
 `
 
 const BoxBorder = styled.div`

@@ -8,7 +8,6 @@ import Logo from '../images/svg/fitzroy_logo.svg'
 import SEO from "../components/seo"
 import Layout from "../containers/layout"
 import LetterheadWrapper from '../components/letterheadWrapper'
-import FoodList from '../components/foodList'
 import LogoArray from '../components/logoArray'
 import PrintButton from '../components/printButton'
 

@@ -38,12 +38,6 @@ const Title = styled.div`
   right: -8px;
 `
 
-const The = styled.span`
-  font-size: 1.3rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-`
-
 const Subtitle = styled.h2`
   margin-bottom: 0.0625in;
   width: fit-content;

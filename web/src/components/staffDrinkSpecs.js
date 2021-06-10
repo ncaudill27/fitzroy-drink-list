@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { useReactToPrint } from 'react-to-print'
+// import { useReactToPrint } from 'react-to-print'
 import { parseAmount, parseMeasurement } from '../lib/parse'
 
 // import PrintButton from '../components/printButton'
@@ -8,9 +8,9 @@ import { parseAmount, parseMeasurement } from '../lib/parse'
 const DrinkSpecs = ({title, drinkList}) => {
   const listEl = useRef()
 
-  const handlePrint = useReactToPrint({
-    content: () => listEl.current,
-  });
+  // const handlePrint = useReactToPrint({
+  //   content: () => listEl.current,
+  // });
 
   return (
     <RootWrapper ref={listEl}>  

@@ -5,8 +5,8 @@ import BullLogo from '../images/svg/bull_logo.svg'
 import DeckLogo from '../images/svg/deck_logo.svg'
 import ParkLogo from '../images/svg/forsyth_logo.svg'
 
-const LogoArray = () => (
-  <Spread>
+const LogoArray = (props) => (
+  <Spread {...props}>
     <ImageWrapper>
       <BullLogo style={{width: '73px', height: '73px'}} />
     </ImageWrapper>

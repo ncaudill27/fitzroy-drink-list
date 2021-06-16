@@ -8,8 +8,9 @@ import SEO from "../components/seo"
 import Layout from "../containers/layout"
 import PrintButton from '../components/printButton'
 import Logo from '../images/svg/fitzroy_logo.svg'
-import LogoArray from '../components/logoArray'
+import LetterHeadWrapper from '../components/letterheadWrapper'
 import FoodStack from '../components/foodStack'
+import LogoArray from '../components/logoArray'
 
 const DinnerPage = ({data}) => {
   const menuEl = useRef()
@@ -32,27 +33,21 @@ const DinnerPage = ({data}) => {
       />
       <div style={{position: 'relative'}}>
         <PrintButton handlePrint={handlePrint} />
-        <Wrapper ref={menuEl}>
+        <Wrapper ref={menuEl} id='barmenu'>
           <MenuHalf>
-            <Header>
               <LogoWrapper>
                 <Logo style={{width: '100%', height: '100%'}} />
               </LogoWrapper>
-            </Header>
-            <FoodList list={foodNodes}>
+            <FoodList list={foodNodes} />
               <SisterLogos />
-            </FoodList>
           </MenuHalf>
           <CutLine />
           <MenuHalf>
-            <Header>
               <LogoWrapper>
                 <Logo style={{width: '100%', height: '100%'}} />
               </LogoWrapper>
-            </Header>
-            <FoodList list={foodNodes}>
+            <FoodList list={foodNodes} />
               <SisterLogos />
-            </FoodList>
           </MenuHalf>
         </Wrapper>
       </div>
@@ -60,32 +55,18 @@ const DinnerPage = ({data}) => {
   ) 
 }
 
-const Header = styled.header`
-  position: relative;
-  height: 136px;
-  margin-bottom: 48px;
-`
-
 const LogoWrapper = styled.div`
-  position: absolute;
-  top: 32px;
+  position: relative;
+  top: 0;
   left: 50%;
   width: 100px;
   height: 100px;
   margin-left: -50px;
-  z-index: 1;
+  margin-bottom: 0.75in;
 `
 
-const Wrapper = styled.div`
-  width: 8.5in;
-  height: 10in;
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  padding: 16px;
+const Wrapper = styled(LetterHeadWrapper)`
+  padding: 1in 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 24px;
@@ -112,10 +93,10 @@ const FoodList = styled(FoodStack)`
 `
 
 const SisterLogos = styled(LogoArray)`
-  right: initial;
+  position: absolute;
   left: 50%;
   margin-left: -133.5px;
-  bottom: 124px;
+  bottom: calc(0.625in);
 `
 
 export const query = graphql`

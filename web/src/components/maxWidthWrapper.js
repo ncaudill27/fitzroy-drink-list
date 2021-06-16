@@ -8,7 +8,8 @@ const MaxWidthWrapper = ({ children, width }) => {
 
 const Wrapper = styled.div`
   max-width: var(--width);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 MaxWidthWrapper.propTypes = {

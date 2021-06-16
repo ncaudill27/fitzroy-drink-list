@@ -33,6 +33,16 @@ const Wrapper = styled.article`
   &:not(:last-child) {
     margin-bottom: 16px;
   }
+
+  #barmenu & {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 2px;
+    }
+  }
 `
 
 const Name = styled.h3`

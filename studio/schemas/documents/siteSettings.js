@@ -10,27 +10,10 @@ export default {
       title: "Title",
     },
     {
-      name: "description",
+      name: "legal",
       type: "text",
-      title: "Description",
-      description: "Describe your blog for search engines and social media.",
-    },
-    {
-      name: "keywords",
-      type: "array",
-      title: "Keywords",
-      description: "Add keywords that describes your blog.",
-      of: [{ type: "string" }],
-      options: {
-        layout: "tags",
-      },
-    },
-    {
-      name: "bartender",
-      type: "reference",
-      description: "Publish a bartender and set a reference to them here.",
-      title: "Bartender",
-      to: [{ type: "bartender" }],
-    },
+      title: "Dinner menu legal text",
+      description: "Small text printed at the bottom of the dinner menu",
+    }
   ],
 };

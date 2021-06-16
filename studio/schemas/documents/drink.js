@@ -59,6 +59,7 @@ export default {
       name: "bartenders",
       title: "Bartenders",
       type: "array",
+      hidden: 'true',
       of: [
         {
           type: "bartenderReference",
@@ -84,12 +85,7 @@ export default {
       type: "bodyPortableText",
       description: "Be sure to type as a numbered list. So click this ↓ first",
       title: "Build Steps",
-    },
-    {
-      name: "mainImage",
-      type: "mainImage",
-      title: "Main image",
-    },
+    }
   ],
 
   preview: {

@@ -53,6 +53,11 @@ const DinnerPage = ({data}) => {
               title='Large Plates'
               list={largePlateNodes}
             />
+            <Legal>
+              Some random legal text example here that's gonna be way too fucking long to test what an annoying amount of text would look like.
+              <br/><br/>
+              Let's make it too tall too cuz why the fuck not.
+            </Legal>
             <LogoArray />
         </LetterheadWrapper>
       </div>
@@ -93,6 +98,15 @@ const SidebarBorder = styled.div`
   right: calc(100% - 104px);
   border: 2px solid;
   border-right: none;
+`
+
+const Legal = styled.p`
+  font-size: 9px;
+  line-height: 1.5;
+  position: absolute;
+  left: 136px;
+  bottom: 80px;
+  width: 280px;
 `
 
 

@@ -31,8 +31,6 @@ export const query = graphql`
   query {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
-      description
-      keywords
     }
   }
 `;
@@ -45,8 +43,7 @@ const IndexPage = ({data}) => {
     <Layout>
       <SEO
         title={site.title}
-        description={site.description}
-        keywords={site.keywords}
+        
       />
       <Wrapper>
         <Title>

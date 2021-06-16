@@ -32,8 +32,6 @@ const DinnerPage = ({data}) => {
    <Layout>
      <SEO
         title={site.title}
-        description={site.description}
-        keywords={site.keywords}
       />
       <div style={{position: 'relative'}}>
         <PrintButton handlePrint={handlePrint} />
@@ -54,9 +52,7 @@ const DinnerPage = ({data}) => {
               list={largePlateNodes}
             />
             <Legal>
-              Some random legal text example here that's gonna be way too fucking long to test what an annoying amount of text would look like.
-              <br/><br/>
-              Let's make it too tall too cuz why the fuck not.
+              {site.legal}
             </Legal>
             <LogoArray />
         </LetterheadWrapper>
@@ -107,6 +103,7 @@ const Legal = styled.p`
   left: 136px;
   bottom: 80px;
   width: 280px;
+  white-space: pre-wrap;
 `
 
 
@@ -115,8 +112,7 @@ export const query = graphql`
   query {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
-      description
-      keywords
+      legal
     }
     smallPlates: allSanityDinnerFood(filter: {course: {eq: "small_plates"}}) {
       edges {

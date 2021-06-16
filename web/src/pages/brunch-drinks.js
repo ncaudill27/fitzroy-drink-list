@@ -18,8 +18,7 @@ const BrunchPage = ({data}) => {
    <Layout>
      <SEO
         title={site.title}
-        description={site.description}
-        keywords={site.keywords}
+        
       />
       {drinkNodes && <CocktailMenu title='Brunch' drinks={drinkNodes} />}
       {drinkNodes && <DrinkSpecs drinkList={drinkNodes} />}
@@ -31,8 +30,6 @@ export const query = graphql`
   query {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
-      description
-      keywords
     }
     cocktails: allSanityDrink(
       filter: {categories: {elemMatch: {title: {eq: "Brunch"}}}}
@@ -47,9 +44,7 @@ export const query = graphql`
             measurement
             name
           }
-          mainImage {
-            _rawAsset
-          }
+          
           id
           glassware
           garnish

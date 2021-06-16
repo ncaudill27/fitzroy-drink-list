@@ -8,7 +8,7 @@ import { buildImageObj } from "../lib/helpers";
 function SEO({ description, lang, meta, keywords, title, image }) {
   const { site } = useStaticQuery(detailsQuery) || {};
 
-  const metaDescription = description || site.description || "";
+  const metaDescription = description || "";
   const siteTitle = site.title || "";
   const siteAuthor = "Nelson Caudilll";
   const metaImage = image?.asset
@@ -91,8 +91,6 @@ const detailsQuery = graphql`
   query DefaultSEOQuery {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
-      description
-      keywords
     }
   }
 `;

@@ -28,8 +28,6 @@ const DinnerPage = ({data}) => {
    <Layout>
      <SEO
         title={site.title}
-        description={site.description}
-        keywords={site.keywords}
       />
       <div style={{position: 'relative'}}>
         <PrintButton handlePrint={handlePrint} />
@@ -103,8 +101,6 @@ export const query = graphql`
   query {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
-      description
-      keywords
     }
     food: allSanityBarFood {
       edges {

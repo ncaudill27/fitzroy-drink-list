@@ -15,9 +15,10 @@ export default {
       title: 'On Menu'
     },
     {
-      name: 'order',
-      type: 'number',
-      title: 'Menu Order',
+      name: "order",
+      type: "number",
+      title: "Order",
+      hidden: true,
     },
     {
       name: 'garnish',

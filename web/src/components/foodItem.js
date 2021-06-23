@@ -28,7 +28,7 @@ const FoodItem = ({name, price, additional_options, _rawDescription}) => (
 )
 
 const Wrapper = styled.article`
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   
   &:not(:last-child) {
     margin-bottom: 16px;
@@ -47,7 +47,7 @@ const Wrapper = styled.article`
 
 const Name = styled.h3`
   font-family: 'Big Shoulders Display';
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
 `
 

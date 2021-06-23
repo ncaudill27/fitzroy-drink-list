@@ -68,7 +68,7 @@ const Header = styled.header`
 
 const LogoWrapper = styled.div`
   position: absolute;
-  top: 32px;
+  top: 40px;
   left: 50%;
   width: 125px;
   height: 125px;
@@ -78,19 +78,19 @@ const LogoWrapper = styled.div`
 
 const BoxBorder = styled.div`
   position: absolute;
-  top: 136px;
+  top: 142px;
   left: 120px;
   right: 64px;
-  bottom: 64px;
+  bottom: 40px;
   border: 2px solid;
   margin: auto;
 `
 
 const SidebarBorder = styled.div`
   position: absolute;
-  top: 136px;
+  top: 142px;
   left: 56px;
-  bottom: 64px;
+  bottom: 40px;
   right: calc(100% - 104px);
   border: 2px solid;
   border-right: none;

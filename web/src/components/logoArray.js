@@ -22,7 +22,7 @@ const LogoArray = (props) => (
 const Spread = styled.div`
   position: absolute;
   right: 80px;
-  bottom: 80px;
+  bottom: 56px;
   display: flex;
   justify-content: space-between;
   width: 267px;

@@ -57,9 +57,9 @@ const LogoWrapper = styled.div`
   position: relative;
   top: 0;
   left: 50%;
-  width: 100px;
-  height: 100px;
-  margin-left: -50px;
+  width: 125px;
+  height: 125px;
+  margin-left: -62.5px;
   margin-bottom: 0.75in;
 `
 
@@ -77,7 +77,7 @@ const CutLine = styled.div`
   left: 4.25in;
   width: 0;
   height: 100%;
-  border: 0.5px dashed black;
+  border: 0.05px dashed black;
 `
 
 const MenuHalf = styled.div`
@@ -86,7 +86,6 @@ const MenuHalf = styled.div`
 
 const FoodList = styled(FoodStack)`
   justify-content: space-between;
-  height: 5in;
   padding: 0 48px;
 `
 
@@ -94,7 +93,7 @@ const SisterLogos = styled(LogoArray)`
   position: absolute;
   left: 50%;
   margin-left: -133.5px;
-  bottom: calc(0.625in);
+  bottom: 0;
 `
 
 export const query = graphql`

@@ -31,9 +31,9 @@ export default {
       title: 'Price'
     },
     {
-      name: 'glassware',
-      type: 'string',
+      name: 'glassware', 
       title: 'Glassware',
+      type: 'string',
       options: {
         list: [
           {title: 'Rocks', value: 'rocks'},
@@ -80,8 +80,7 @@ export default {
 
   preview: {
     select: {
-      title: 'name',
-      media: "mainImage",
+      title: 'name'
     },
   }
 };

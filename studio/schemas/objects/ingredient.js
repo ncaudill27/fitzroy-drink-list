@@ -12,6 +12,7 @@ export default {
       name: 'amount',
       type: 'string',
       title: 'Amount',
+      description: 'Use fractions not decimals with one space if needed. e.g. "2 1/2"',
       validation: Rule => Rule.regex(/\./, {invert: true}).error('Use fractions instead of decimals.')
     },
     {

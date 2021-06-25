@@ -1,6 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdBubbleChart, MdList, MdLocalBar, MdRadioButtonChecked, MdRadioButtonUnchecked, MdSettings } from "react-icons/md";
-import { MdPerson, MdDescription, MdLocalOffer } from "react-icons/md";
+import {  MdPerson, MdLocalOffer, MdOpacity, MdLocalDrink, MdLocalBar, MdRadioButtonChecked, MdRadioButtonUnchecked, MdSettings } from "react-icons/md";
 import IframePreview from "../previews/IframePreview";
 
 // Web preview configuration
@@ -54,11 +53,6 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title("Drinks")
-        .icon(MdLocalBar)
-        .schemaType("drink")
-        .child(S.documentTypeList("drink").title("Drink List")),
-      S.listItem()
         .title("Dinner Food")
         .icon(MdRadioButtonChecked)
         .schemaType("dinnerFood")
@@ -68,16 +62,36 @@ export default () =>
         .icon(MdRadioButtonChecked)
         .schemaType("barFood")
         .child(S.documentTypeList("barFood").title("Bar Food Items")),
+      // S.listItem()
+      //   .title("Brunch Food")
+      //   .icon(MdRadioButtonUnchecked)
+      //   .schemaType("brunchFood")
+      //   .child(S.documentTypeList("brunchFood").title("Brunch Food Items")),
       S.listItem()
-        .title("Brunch Food")
-        .icon(MdRadioButtonUnchecked)
-        .schemaType("brunchFood")
-        .child(S.documentTypeList("brunchFood").title("Brunch Food Items")),
+        .title("Cocktails")
+        .icon(MdLocalBar)
+        .schemaType("dinnerCocktail")
+        .child(S.documentTypeList("dinnerCocktail").title("Drink List")),
       S.listItem()
-        .title("Bartenders")
-        .icon(MdPerson)
-        .schemaType("bartender")
-        .child(S.documentTypeList("bartender").title("Bartender")),
+        .title("Wine")
+        .icon(MdOpacity)
+        .schemaType("wine")
+        .child(S.documentTypeList("wine").title("Wine List")),
+      S.listItem()
+        .title("Beer")
+        .icon(MdLocalDrink)
+        .schemaType("beer")
+        .child(S.documentTypeList("beer").title("Beer List")),
+      S.listItem()
+        .title("Draft Beer")
+        .icon(MdLocalDrink)
+        .schemaType("draftBeer")
+        .child(S.documentTypeList("draftBeer").title("Beer List")),
+      // S.listItem()
+      //   .title("Bartenders")
+      //   .icon(MdPerson)
+      //   .schemaType("bartender")
+      //   .child(S.documentTypeList("bartender").title("Bartender")),
       S.listItem()
         .title("Categories")
         .icon(MdLocalOffer)
@@ -88,7 +102,7 @@ export default () =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !["category", "bartender", "drink", "brunchFood", "dinnerFood", "barFood", "siteSettings"].includes(
+          !["category", "dinnerCocktail", "brunchFood", "dinnerFood", "barFood", "siteSettings", 'beer', 'draftBeer', 'wine'].includes(
             listItem.getId()
           )
       ),

@@ -31,32 +31,6 @@ export const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
-    cocktails: allSanityDrink(
-      filter: {categories: {elemMatch: {title: {eq: "Brunch"}}}}
-      sort: {fields: order, order: ASC}
-    ) {
-      edges {
-        node {
-          name
-          price
-          ingredients {
-            amount
-            measurement
-            name
-          }
-          
-          id
-          glassware
-          garnish
-          categories {
-            title
-          }
-          body {
-            _rawChildren
-          }
-        }
-      }
-    }
   }
 `
 

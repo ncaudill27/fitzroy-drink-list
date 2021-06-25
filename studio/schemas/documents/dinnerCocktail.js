@@ -1,7 +1,7 @@
 export default {
-  name: "drink",
+  name: "dinnerCocktail",
   type: "document",
-  title: "Drink",
+  title: "Dinner Cocktail",
   fields: [
     {
       name: "name",
@@ -56,22 +56,11 @@ export default {
         }
       ]
     },
-    // {
-    //   name: "bartenders",
-    //   title: "Bartenders",
-    //   type: "array",
-    //   hidden: 'true',
-    //   of: [
-    //     {
-    //       type: "bartenderReference",
-    //     },
-    //   ],
-    // },
     {
       name: "categories",
       type: "array",
       title: "Categories",
-      description: "Used for organizational purposes. Be sure to add what menu it should appear on if nothing else.",
+      description: "Used for organizational purposes. DO NOT use \"Dinner\" or \"Brunch\" categories. Those are outdated",
       of: [
         {
           type: "reference",

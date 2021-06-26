@@ -15,7 +15,7 @@ const WineItem = ({
       <Name>{name}</Name>
       <Origin>{origin}</Origin>
     </div>
-    <DashedLine />
+    <DottedLine />
     <Price>{price_glass}{price_glass && '/'}{price_bottle}</Price>
   </Wrapper>
 )
@@ -27,8 +27,9 @@ const Wrapper = styled.article`
   justify-content: space-between;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+
   &:last-child {
-   margin-bottom: 8px; 
+    margin-bottom: 8px; 
   }
 `
 
@@ -39,14 +40,17 @@ const Varietal = styled.span`
 `
 
 const Name = styled.span`
-  margin-right: 8px;
+  margin-right: 4px;
 `
 
 const Origin = styled.span`
-  
+  padding-left: 4px;
+  border-left: 1px solid;
+  color: hsl(0, 0%, 30%);
+  font-weight: 300;
 `
 
-const DashedLine = styled.div`
+const DottedLine = styled.div`
   flex-grow: 1;
   border-bottom: 1px dotted;
 `

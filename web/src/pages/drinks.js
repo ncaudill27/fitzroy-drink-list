@@ -11,6 +11,7 @@ import PrintButton from '../components/printButton'
 import LetterheadWrapper from '../components/letterheadWrapper'
 import WineStack from '../components/wineStack'
 import LogoArray from '../components/logoArray'
+import BeerStack from '../components/beerStack'
 
 const DrinksPage = ({data}) => {
   const menuEl = useRef()
@@ -56,6 +57,17 @@ const DrinksPage = ({data}) => {
             <WineStack list={whiteWineNodes} />
             <ListHeader>Rosé &amp; Bubbles</ListHeader>
             <WineStack list={sparklingWineNodes} />
+            <Beer>
+              <div>
+                <ListHeader>Bottle &amp; Can Beer</ListHeader>
+                <BeerStack list={beerNodes} />
+              </div>
+              <div>
+                <ListHeader>Draft Beer</ListHeader>
+                <BeerStack list={draftBeerNodes} />
+              </div>
+            </Beer>
+            <LogoArray style={{right: 40, bottom: 40}} />
           </ContentContainer>
         </LetterheadWrapper>
       </div>
@@ -109,6 +121,13 @@ const ListHeader = styled.h2`
   border-bottom: 1px solid;
 `
 
+const Beer = styled.div`
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+`
+
 
 
 export const query = graphql`
@@ -116,7 +135,9 @@ export const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
-    beer: allSanityBeer(sort: {fields: order, order: ASC}) {
+    beer: allSanityBeer(
+      sort: {fields: [order, brewery, price], order: [ASC, ASC, ASC]}
+    ) {
       edges {
         node {
           brewery
@@ -126,7 +147,9 @@ export const query = graphql`
         }
       }
     }
-    draftBeer: allSanityDraftBeer(sort: {fields: order, order: ASC}) {
+    draftBeer: allSanityDraftBeer(
+      sort: {fields: [order, brewery, price], order: [ASC, ASC, ASC]}
+    ) {
       edges {
         node {
           brewery
@@ -138,7 +161,7 @@ export const query = graphql`
     }
     red: allSanityWine(
       filter: {type: {eq: "red"}, active: {eq: true}}
-      sort: {fields: order, order: ASC}
+      sort: {fields: [order, price_glass, name], order: [ASC, ASC, ASC]}
     ) {
       edges {
         node {
@@ -153,7 +176,7 @@ export const query = graphql`
     }
     white: allSanityWine(
       filter: {type: {eq: "wine"}, active: {eq: true}}
-      sort: {fields: order, order: ASC}
+      sort: {fields: [order, price_glass, name], order: [ASC, ASC, ASC]}
     ) {
       edges {
         node {
@@ -168,7 +191,7 @@ export const query = graphql`
     }
     sparkling: allSanityWine(
       filter: {type: {eq: "sparkling"}, active: {eq: true}}
-      sort: {fields: order, order: ASC}
+      sort: {fields: [order, price_glass, name], order: [ASC, ASC, ASC]}
     ) {
       edges {
         node {

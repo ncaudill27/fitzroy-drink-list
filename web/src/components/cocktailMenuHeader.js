@@ -20,8 +20,8 @@ const Header = ({title}) => (
 const Wrapper = styled.header`
   position: relative;
   width: 4.25in;
-  height: 1.75in; /* 1 5/8" */
-  top: 0.5625in; /* 11/16" */
+  height: 1.75in;
+  top: 0.5625in;
   background-color: hsl(330, 1%, 71%);
   display: flex;
   flex-direction: column;

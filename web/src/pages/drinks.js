@@ -48,6 +48,9 @@ const DrinksPage = ({data}) => {
               Beer &amp; Wine
             </Title>
           </Header>
+          <ContentContainer>
+            Test
+          </ContentContainer>
         </LetterheadWrapper>
       </div>
    </Layout>
@@ -55,7 +58,6 @@ const DrinksPage = ({data}) => {
 }
 
 const Header = styled.header`
-  position: relative;
   height: 120px;
   width: fit-content;
   padding-left: 16px;
@@ -78,6 +80,18 @@ const Title = styled.h1`
   color: hsl(357, 74%, 28%);
   text-align: center;
   text-transform: uppercase;
+`
+
+const ContentContainer = styled.div`
+  position: absolute;
+  top: 56px;
+  left: 48px;
+  right: 48px;
+  bottom: 56px;
+  margin: auto;
+  border: 2px solid;
+
+  padding: 80px 48px;
 `
 
 

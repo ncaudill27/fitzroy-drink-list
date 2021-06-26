@@ -116,7 +116,7 @@ const ListHeader = styled.h2`
   padding-bottom: 2px;
   margin-bottom: 4px;
   font-family: 'Big Shoulders Display', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   text-transform: uppercase;
   border-bottom: 1px solid;
 `

@@ -1,19 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import Stack from './stack'
 import FoodItem from './foodItem'
 
 const FoodStack = ({list, children, ...props}) => (
-  <Wrapper {...props}>
+  <Stack {...props}>
     {list.map(item => (
       <FoodItem key={item.id} {...item} />
     ))}
     {children}
-  </Wrapper>
+  </Stack>
 )
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`
 
 export default FoodStack

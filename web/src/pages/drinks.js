@@ -7,9 +7,10 @@ import { useReactToPrint } from 'react-to-print'
 import Logo from '../images/svg/fitzroy_logo.svg'
 import SEO from "../components/seo"
 import Layout from "../containers/layout"
-import LetterheadWrapper from '../components/letterheadWrapper'
-import LogoArray from '../components/logoArray'
 import PrintButton from '../components/printButton'
+import LetterheadWrapper from '../components/letterheadWrapper'
+import WineStack from '../components/wineStack'
+import LogoArray from '../components/logoArray'
 
 const DrinksPage = ({data}) => {
   const menuEl = useRef()
@@ -25,14 +26,14 @@ const DrinksPage = ({data}) => {
   const draftBeerNodes = !!data?.draftBeer
     ? mapEdgesToNodes(data.draftBeer)
     : [];
-  const redWineNodes = !!data?.redWine
-    ? mapEdgesToNodes(data.redWine)
+  const redWineNodes = !!data?.red
+    ? mapEdgesToNodes(data.red)
     : [];
-  const whiteWineNodes = !!data?.whiteWine
-    ? mapEdgesToNodes(data.whiteWine)
+  const whiteWineNodes = !!data?.white
+    ? mapEdgesToNodes(data.white)
     : [];
-  const sparklingWineNodes = !!data?.sparklingWine
-    ? mapEdgesToNodes(data.sparklingWine)
+  const sparklingWineNodes = !!data?.sparkling
+    ? mapEdgesToNodes(data.sparkling)
     : [];
 
  return (
@@ -49,7 +50,12 @@ const DrinksPage = ({data}) => {
             </Title>
           </Header>
           <ContentContainer>
-            Test
+            <ListHeader>Red</ListHeader>
+            <WineStack list={redWineNodes} />
+            <ListHeader>White</ListHeader>
+            <WineStack list={whiteWineNodes} />
+            <ListHeader>Rosé &amp; Bubbles</ListHeader>
+            <WineStack list={sparklingWineNodes} />
           </ContentContainer>
         </LetterheadWrapper>
       </div>
@@ -94,6 +100,15 @@ const ContentContainer = styled.div`
   padding: 80px 48px;
 `
 
+const ListHeader = styled.h2`
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid;
+`
+
 
 
 export const query = graphql`
@@ -125,39 +140,45 @@ export const query = graphql`
       filter: {type: {eq: "red"}, active: {eq: true}}
       sort: {fields: order, order: ASC}
     ) {
-      nodes {
-        name
-        origin
-        price_bottle
-        price_glass
-        varietal
-        active
+      edges {
+        node {
+          id
+          name
+          origin
+          price_bottle
+          price_glass
+          varietal
+        }
       }
     }
     white: allSanityWine(
-      filter: {type: {eq: "white"}, active: {eq: true}}
+      filter: {type: {eq: "wine"}, active: {eq: true}}
       sort: {fields: order, order: ASC}
     ) {
-      nodes {
-        name
-        origin
-        price_bottle
-        price_glass
-        varietal
-        active
+      edges {
+        node {
+          id
+          name
+          origin
+          price_bottle
+          price_glass
+          varietal
+        }
       }
     }
     sparkling: allSanityWine(
       filter: {type: {eq: "sparkling"}, active: {eq: true}}
       sort: {fields: order, order: ASC}
     ) {
-      nodes {
-        name
-        origin
-        price_bottle
-        price_glass
-        varietal
-        active
+      edges {
+        node {
+          id
+          name
+          origin
+          price_bottle
+          price_glass
+          varietal
+        }
       }
     }
   }

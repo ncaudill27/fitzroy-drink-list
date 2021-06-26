@@ -51,9 +51,10 @@ const IndexPage = ({data}) => {
           Fitzroy <br />
           Menu
         </Title>
-        <StyledLink to='/dinnerfood'>Dinner Food</StyledLink>
-        <StyledLink to='/dinnerdrinks'>Dinner Cocktails</StyledLink>
+        <StyledLink to='/food'>Food Menu</StyledLink>
         <StyledLink to='/barmenu'>Bar Menu</StyledLink>
+        <StyledLink to='/cocktails'>Cocktail Menu</StyledLink>
+        <StyledLink to='/drinks'>Beer & Wine Menu</StyledLink>
       </Wrapper>
     </Layout>
   );

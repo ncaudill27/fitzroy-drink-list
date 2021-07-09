@@ -47,7 +47,7 @@ const DrinkSpecs = ({title, drinkList}) => {
             ))}</Content>
             <Subheader>Build</Subheader>
             <Content>
-              {body.map( ({_rawChildren, _key}, idx) => (
+              {body && body.map( ({_rawChildren, _key}, idx) => (
                 <BuildStep key={_key} >
                   {idx + 1}) {_rawChildren[0].text}
                 </BuildStep>

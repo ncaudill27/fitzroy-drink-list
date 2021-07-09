@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 const NamePrice = styled.div`
   font-family: 'Big Shoulders Display', sans-serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   text-transform: uppercase;
   white-space: pre-wrap;
 `
@@ -47,6 +47,6 @@ const Ingredients = styled.div`
   font-family: 'Montserrat', sans-serif;
   color: hsl(0, 0%, 30%);
   font-weight: 300;
-  font-size: 16px;
+  font-size: 15px;
 `
 export default DrinkList

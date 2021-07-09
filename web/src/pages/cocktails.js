@@ -30,7 +30,10 @@ export const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
-    cocktails: allSanityDinnerCocktail(sort: {fields: order, order: ASC}) {
+    cocktails: allSanityDinnerCocktail(
+      filter: {active: {eq: true}}
+      sort: {fields: order, order: ASC}
+    ) {
       edges {
         node {
           name

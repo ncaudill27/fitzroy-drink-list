@@ -44,7 +44,6 @@ const Price = styled.span`
 `
 
 const Ingredients = styled.div`
-  margin-bottom: 2px;
   font-family: 'Montserrat', sans-serif;
   color: hsl(0, 0%, 30%);
   font-weight: 300;

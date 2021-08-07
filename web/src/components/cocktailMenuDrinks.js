@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   position: absolute;
   width: 6.625in; /* 5/8" */
   height: 8in;
-  bottom: 1.125in; /* 1/16" */
+  bottom: 1.375in; /* 1/16" */
   right: 0.9375in; /* 15/16" */
   border: 3px solid;
   display: flex;
@@ -28,7 +28,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding: 1in 1.5in;
   text-align: center;
-  margin-top: -25px;
 `
 
 const NamePrice = styled.div`

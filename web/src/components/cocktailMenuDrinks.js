@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding: 1in 1.5in;
   text-align: center;
+  margin-top: -25px;
 `
 
 const NamePrice = styled.div`

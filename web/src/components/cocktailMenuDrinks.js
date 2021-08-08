@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0.25in 1.5in;
+  padding: 0.625in 1.5in;
   text-align: center;
 `
 

@@ -94,6 +94,50 @@ export default () =>
                     .title("Gin Cocktails")
                     .filter('count((categories[]->title)[@ == "Gin"]) > 0')
                 ),
+              S.listItem()
+                .title("Whiskey Cocktails")
+                .child(
+                  S.documentTypeList("dinnerCocktail")
+                    .title("Whiskey Cocktails")
+                    .filter('count((categories[]->title)[@ == "Whiskey"]) > 0')
+                ),
+              S.listItem()
+                .title("Rum Cocktails")
+                .child(
+                  S.documentTypeList("dinnerCocktail")
+                    .title("Rum Cocktails")
+                    .filter('count((categories[]->title)[@ == "Rum"]) > 0')
+                ),
+              S.listItem()
+                .title("Agave Cocktails")
+                .child(
+                  S.documentTypeList("dinnerCocktail")
+                    .title("Agave Cocktails")
+                    .filter(
+                      'count((categories[]->title)[@ in ["Tequila", "Mezcal"]]) > 0'
+                    )
+                ),
+              S.listItem()
+                .title("Other Cocktails")
+                .child(
+                  S.documentTypeList("dinnerCocktail")
+                    .title("Other Cocktails")
+                    .filter('count((categories[]->title)[@ in ["Vodka"]]) > 0')
+                ),
+              S.listItem()
+                .title("Uncategorized Cocktails")
+                .child(
+                  S.documentTypeList("dinnerCocktail")
+                    .title("Uncategorized Cocktails")
+                    .filter('_type == "dinnerCocktail" && !defined(categories)')
+                ),
+              S.listItem()
+                .title("Cocktails missing build")
+                .child(
+                  S.documentTypeList("dinnerCocktail")
+                    .title("Cocktails missing build")
+                    .filter('_type == "dinnerCocktail" && !defined(body)')
+                ),
             ])
         ),
       S.listItem()
